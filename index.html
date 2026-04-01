@@ -1,23 +1,146 @@
-<header style="display:flex; align-items:center; justify-content:space-between; padding:20px 40px; background:white; border-bottom:1px solid #eee;">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İklim Öğretmenler</title>
 
-  <!-- SOL: Proje adı -->
-  <div style="font-weight:600;">
-    İklim için Değişen ve Dönüştüren Öğretmenler
-  </div>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
 
-  <!-- ORTA: Menü -->
-  <nav style="display:flex; gap:20px;">
-    <a href="#">Hakkında</a>
-    <a href="#">Amaç</a>
-    <a href="#">Çıktılar</a>
-    <a href="#">Galeri</a>
-    <a href="#">İletişim</a>
-  </nav>
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: white;
+      border-bottom: 1px solid #eee;
+    }
 
-  <!-- SAĞ: ODTÜ LOGO -->
-  <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Middle_East_Technical_University_logo.svg" 
-         style="height:40px;">
-  </div>
+    nav {
+      display: flex;
+      gap: 20px;
+    }
 
-</header>
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      background: #0f3d2e;
+      color: white;
+      padding: 80px 40px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      opacity: 0.9;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 60px 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin-top: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <!-- SOL -->
+    <div style="font-weight:600;">
+      İklim için Değişen ve Dönüştüren Öğretmenler
+    </div>
+
+    <!-- ORTA -->
+    <nav>
+      <a href="#">Hakkında</a>
+      <a href="#">Amaç</a>
+      <a href="#">Çıktılar</a>
+      <a href="#">Galeri</a>
+      <a href="#">İletişim</a>
+    </nav>
+
+    <!-- SAĞ LOGO -->
+    <div>
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Middle_East_Technical_University_logo.svg"
+        style="height:40px;"
+      >
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>İklim İçin Değişen ve Dönüştüren Öğretmenler</h1>
+    <p>
+      Fen bilimleri öğretmenlerinin iklim eğitimindeki yetkinliklerini güçlendirmek için tasarlanmış akademik bir program.
+    </p>
+  </section>
+
+  <!-- PROJE HAKKINDA -->
+  <section class="section">
+    <h2>Proje Hakkında</h2>
+    <div class="card">
+      Bu program, öğretmenlerin iklim değişikliği eğitimindeki yetkinliklerini artırmayı hedefleyen kapsamlı bir mesleki gelişim platformudur.
+    </div>
+  </section>
+
+  <!-- AMAÇ -->
+  <section class="section">
+    <h2>Amaç</h2>
+    <div class="card">
+      Projenin temel amacı, öğretmenlerin iklim değişikliği konusunu öğretirken karşılaştıkları zorlukların üstesinden gelmelerini desteklemektir.
+    </div>
+  </section>
+
+  <!-- ÇIKTILAR -->
+  <section class="section">
+    <h2>Proje Çıktıları</h2>
+    <div class="card">Öğretmen El Kitabı (PDF)</div>
+    <div class="card">Seminer İçerikleri</div>
+  </section>
+
+  <!-- GALERİ -->
+  <section class="section">
+    <h2>Galeri</h2>
+    <div class="card">Görseller burada yer alacak</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 ODTÜ Projesi
+  </footer>
+
+</body>
+</html>
