@@ -21,15 +21,30 @@
       border-bottom: 1px solid #eee;
     }
 
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .left span {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
     nav {
       display: flex;
-      gap: 20px;
+      gap: 25px;
     }
 
     nav a {
       text-decoration: none;
       color: #333;
       font-size: 14px;
+    }
+
+    .right img {
+      height: 40px;
     }
 
     /* HERO */
@@ -76,12 +91,13 @@
   <!-- HEADER -->
   <header>
 
-    <!-- SOL -->
-    <div style="font-weight:600;">
-      İklim için Değişen ve Dönüştüren Öğretmenler
+    <!-- SOL: PROJE LOGO + TEXT -->
+    <div class="left">
+      <img src="project_logo_fixed.png" style="height:40px;">
+      <span>İklim için Değişen ve Dönüştüren Öğretmenler</span>
     </div>
 
-    <!-- ORTA -->
+    <!-- ORTA: MENU -->
     <nav>
       <a href="#">Hakkında</a>
       <a href="#">Amaç</a>
@@ -90,12 +106,9 @@
       <a href="#">İletişim</a>
     </nav>
 
-    <!-- SAĞ LOGO -->
-    <div>
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Middle_East_Technical_University_logo.svg"
-        style="height:40px;"
-      >
+    <!-- SAĞ: ODTÜ LOGO -->
+    <div class="right">
+      <img src="odtu_logo_fixed.png">
     </div>
 
   </header>
