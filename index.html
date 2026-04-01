@@ -3,218 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İklim İçin Öğretmenler</title>
+<title>İklim Öğretmenler</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f7f7f7;
+  color:#1a1a1a;
+  line-height:1.6;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f7f9f8;
-  color: #1a1a1a;
+/* CONTAINER */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:0 20px;
 }
 
 /* HEADER */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 120px;
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #eee;
+header{
+  background:white;
+  border-bottom:1px solid #eee;
 }
 
-.left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
 }
 
-.left img {
-  height: 55px;
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#333;
+  font-size:14px;
 }
 
-.left span {
-  font-weight: 600;
-  font-size: 16px;
-}
-
-nav {
-  display: flex;
-  gap: 35px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-nav a:hover {
-  color: #174c3c;
-}
-
-.right img {
-  height: 55px;
+nav a:hover{
+  color:#0f3d2e;
 }
 
 /* HERO */
-.hero {
-  background: linear-gradient(135deg, #174c3c, #1f6f54);
-  color: white;
-  padding: 160px 120px;
+.hero{
+  background:linear-gradient(180deg,#0f3d2e,#0b2d22);
+  color:white;
+  padding:100px 0;
 }
 
-.hero h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  max-width: 800px;
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  line-height:1.2;
 }
 
-.hero p {
-  font-size: 18px;
-  max-width: 600px;
-  opacity: 0.9;
+.hero span{
+  color:#4cd4a5;
 }
 
-.button {
-  margin-top: 30px;
-  display: inline-block;
-  padding: 14px 28px;
-  background: white;
-  color: #174c3c;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
+.hero p{
+  margin-top:20px;
+  max-width:600px;
+  opacity:.9;
 }
 
-.button:hover {
-  background: #e6f2ee;
+.buttons{
+  margin-top:30px;
 }
 
-/* SECTIONS */
-.section {
-  padding: 120px 120px;
+.btn{
+  padding:12px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  display:inline-block;
+  margin-right:10px;
+  transition:.3s;
 }
 
-.section h2 {
-  font-size: 28px;
-  margin-bottom: 25px;
+.btn-primary{
+  background:#1abc9c;
+  color:white;
 }
 
-.card {
-  background: white;
-  padding: 35px;
-  border-radius: 16px;
-  max-width: 800px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  border:1px solid white;
+  color:white;
+}
+
+.btn-outline:hover{
+  background:white;
+  color:#0f3d2e;
+}
+
+/* SECTION */
+.section{
+  padding:80px 0;
+}
+
+.section h2{
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.grid .item{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  transition:.3s;
+}
+
+.grid .item:hover{
+  transform:translateY(-5px);
 }
 
 /* GALLERY */
-.gallery {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
+.gallery{
+  background:#0f3d2e;
+  color:white;
 }
 
-.gallery img {
-  width: 300px;
-  border-radius: 12px;
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:30px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  transition:.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* CONTACT */
+.contact input,
+.contact textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.contact button{
+  margin-top:20px;
+  padding:12px 20px;
+  background:#0f3d2e;
+  color:white;
+  border:none;
+  border-radius:8px;
 }
 
 /* FOOTER */
-footer {
-  background: #174c3c;
-  color: white;
-  padding: 40px 120px;
-  text-align: center;
-  margin-top: 60px;
+footer{
+  background:#0f3d2e;
+  color:white;
+  text-align:center;
+  padding:40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  nav{
+    display:none;
+  }
+
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-  <div class="left">
-    <img src="./project.png">
-    <span>İklim İçin Değişen ve Dönüştüren Öğretmenler</span>
-  </div>
-
-  <nav>
-    <a href="#about">Hakkında</a>
-    <a href="#amac">Amaç</a>
-    <a href="#cikti">Çıktılar</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#iletisim">İletişim</a>
-  </nav>
-
-  <div class="right">
-    <img src="./odtu.png">
+  <div class="container header-inner">
+    <div><b>İklim Öğretmenler</b></div>
+    <nav>
+      <a href="#">Hakkında</a>
+      <a href="#">Amaç</a>
+      <a href="#">Çıktılar</a>
+      <a href="#">Galeri</a>
+      <a href="#">İletişim</a>
+    </nav>
   </div>
 </header>
 
 <section class="hero">
-  <h1>İklim İçin Değişen ve Dönüştüren Öğretmenler</h1>
-  <p>
-    Fen bilimleri öğretmenlerinin iklim değişikliği eğitimindeki yetkinliklerini güçlendirmek için tasarlanmış kapsamlı bir program.
-  </p>
+  <div class="container">
+    <p>ODTÜ Eğitim Fakültesi · BAP 11858</p>
 
-  <div class="button">Detayları İncele</div>
+    <h1>
+      İklim için Değişen <br>
+      ve Dönüştüren <span>Öğretmenler</span>
+    </h1>
+
+    <p>
+      Fen bilimleri öğretmenlerinin iklim eğitimindeki yetkinliklerini
+      güçlendirmek için tasarlanan işbirlikçi bir akademik program.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary">Projeyi İncele</a>
+      <a class="btn btn-outline">Çıktılara Göz At</a>
+    </div>
+  </div>
 </section>
 
-<section id="about" class="section">
+<section class="section container">
   <h2>Proje Hakkında</h2>
   <div class="card">
-    Bu program, öğretmenlerin iklim değişikliği eğitimindeki yetkinliklerini artırmayı hedefleyen kapsamlı bir mesleki gelişim platformudur.
+    Öğretmenlerin iklim değişikliğini sınıflarına taşıyabilmeleri için tasarlanan araştırma temelli bir mesleki gelişim programı.
   </div>
 </section>
 
-<section id="amac" class="section">
+<section class="section container">
   <h2>Amaç</h2>
-  <div class="card">
+  <p>
     Projenin temel amacı, öğretmenlerin iklim değişikliği konusunu öğretirken karşılaştıkları zorlukların üstesinden gelmelerini desteklemektir.
-  </div>
+  </p>
 </section>
 
-<section id="cikti" class="section">
+<section class="section container">
   <h2>Proje Çıktıları</h2>
-  <div class="card">Öğretmen El Kitabı</div>
-  <div class="card">Eğitim İçerikleri</div>
-</section>
 
-<section id="galeri" class="section">
-  <h2>Galeri</h2>
-  <div class="gallery">
-    <img src="https://picsum.photos/300/200">
-    <img src="https://picsum.photos/301/200">
-    <img src="https://picsum.photos/302/200">
+  <div class="grid">
+    <div class="item">Öğretmen El Kitabı</div>
+    <div class="item">Araştırma Raporları</div>
+    <div class="item">Seminer Materyalleri</div>
+    <div class="item">Müdahale Stratejileri</div>
+    <div class="item">Bilgilendirme Materyalleri</div>
+    <div class="item">Süreç Arşivi</div>
   </div>
 </section>
 
-<section id="iletisim" class="section">
-  <h2>İletişim</h2>
-  <div class="card">
-    info@iklimicin.org
+<section class="section gallery">
+  <div class="container">
+    <h2>Galeri</h2>
+
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+    </div>
   </div>
+</section>
+
+<section class="section contact container">
+  <h2>İletişime Geçin</h2>
+
+  <input placeholder="Ad Soyad">
+  <input placeholder="E-posta">
+  <textarea placeholder="Mesaj"></textarea>
+
+  <button>Mesaj Gönder</button>
 </section>
 
 <footer>
-  © 2026 ODTÜ Projesi
+  © 2026 ODTÜ Eğitim Fakültesi
 </footer>
 
 </body>
