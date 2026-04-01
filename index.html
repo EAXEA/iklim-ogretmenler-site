@@ -4,9 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>İklim İçin Değişen ve Dönüştüren Öğretmenler</title>
+
+  <meta name="description" content="Öğretmenlerin iklim değişikliği eğitimindeki yetkinliklerini güçlendirmek için tasarlanan işbirlikçi bir akademik program." />
+  <meta property="og:title" content="İklim İçin Değişen ve Dönüştüren Öğretmenler" />
+  <meta property="og:description" content="ODTÜ Eğitim Fakültesi bünyesinde yürütülen iklim eğitimi odaklı doktora tez projesi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./project.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg: #f6f7f4;
@@ -20,6 +29,7 @@
       --accent: #18b8a6;
       --accent-soft: #daf6f0;
       --shadow: 0 18px 50px rgba(17, 34, 28, 0.08);
+      --shadow-lg: 0 24px 64px rgba(17, 34, 28, 0.12);
       --radius: 22px;
       --radius-sm: 16px;
       --max: 1180px;
@@ -27,7 +37,10 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
@@ -41,6 +54,16 @@
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
     button, input, textarea { font: inherit; }
+
+    ::selection {
+      background: rgba(24, 184, 166, 0.18);
+      color: var(--ink);
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(24, 184, 166, 0.35);
+      outline-offset: 3px;
+    }
 
     .container {
       width: min(var(--max), calc(100% - (var(--pad) * 2)));
@@ -97,12 +120,18 @@
 
     /* Header */
     .topbar {
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(19, 36, 29, 0.08);
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
+      transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
+    }
+
+    .topbar.scrolled {
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 10px 32px rgba(17, 34, 28, 0.07);
     }
 
     .nav-wrap {
@@ -126,6 +155,7 @@
       height: 48px;
       object-fit: contain;
       flex: none;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.06));
     }
 
     .brand span {
@@ -151,7 +181,7 @@
       font-size: .95rem;
       font-weight: 500;
       color: #2b433a;
-      transition: color .2s ease;
+      transition: color .2s ease, transform .2s ease;
     }
 
     .nav a::after {
@@ -165,10 +195,12 @@
       transform: scaleX(0);
       transform-origin: left;
       transition: transform .2s ease;
+      border-radius: 999px;
     }
 
     .nav a:hover {
       color: #0b5c53;
+      transform: translateY(-1px);
     }
 
     .nav a:hover::after {
@@ -199,10 +231,12 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
     }
 
     .menu-btn:hover {
       background: rgba(18,32,26,.05);
+      transform: translateY(-1px);
     }
 
     .menu-btn svg {
@@ -301,12 +335,26 @@
       padding: 0 18px;
       border-radius: 12px;
       font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease;
       border: 1px solid transparent;
       will-change: transform;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.20) 50%, transparent 80%);
+      transform: translateX(-120%);
+      transition: transform .55s ease;
+      z-index: -1;
     }
 
     .btn:hover { transform: translateY(-2px); }
+    .btn:hover::before { transform: translateX(120%); }
 
     .btn-primary {
       background: linear-gradient(180deg, #1bb9a7, #12a394);
@@ -322,6 +370,7 @@
       border-color: rgba(255,255,255,.20);
       color: white;
       background: rgba(255,255,255,.03);
+      backdrop-filter: blur(8px);
     }
 
     .btn-secondary:hover {
@@ -335,6 +384,16 @@
       box-shadow: 0 24px 60px rgba(0,0,0,.24);
       padding: 18px;
       backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at 80% 0%, rgba(24,184,166,.10), transparent 45%);
+      pointer-events: none;
     }
 
     .hero-card-header {
@@ -342,6 +401,8 @@
       gap: 12px;
       align-items: center;
       margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-card-header img {
@@ -369,6 +430,8 @@
       display: grid;
       gap: 10px;
       padding-top: 6px;
+      position: relative;
+      z-index: 1;
     }
 
     .meta-row {
@@ -403,6 +466,8 @@
       margin-top: 18px;
       padding-top: 14px;
       border-top: 1px solid rgba(255,255,255,.08);
+      position: relative;
+      z-index: 1;
     }
 
     .logo-strip img {
@@ -415,10 +480,21 @@
     .panel {
       padding: 104px 0;
       background: var(--bg);
+      position: relative;
     }
 
     .panel.alt {
       background: #fafaf8;
+    }
+
+    .panel::before,
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,.16), transparent 22%);
+      opacity: .35;
     }
 
     .two-col {
@@ -426,6 +502,8 @@
       grid-template-columns: minmax(0, 1.2fr) minmax(280px, .84fr);
       gap: 42px;
       align-items: start;
+      position: relative;
+      z-index: 1;
     }
 
     .story p.lead {
@@ -444,6 +522,16 @@
       border-radius: 18px;
       box-shadow: var(--shadow);
       padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(500px circle at 100% 0%, rgba(24,184,166,.08), transparent 45%);
+      pointer-events: none;
     }
 
     .info-item {
@@ -451,6 +539,8 @@
       gap: 14px;
       padding: 14px 0;
       border-top: 1px solid rgba(18,32,26,.08);
+      position: relative;
+      z-index: 1;
     }
 
     .info-item:first-child { border-top: 0; padding-top: 0; }
@@ -465,6 +555,7 @@
       color: #178b79;
       font-size: 16px;
       font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
     }
 
     .info-item h3 {
@@ -483,6 +574,8 @@
 
     .purpose-wrap {
       max-width: 900px;
+      position: relative;
+      z-index: 1;
     }
 
     .purpose-wrap .section-lead {
@@ -514,9 +607,10 @@
       box-shadow: 0 10px 24px rgba(16, 32, 25, .05);
       padding: 20px;
       min-height: 144px;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
 
     .card::after {
@@ -527,16 +621,38 @@
       background: linear-gradient(90deg, transparent, rgba(24,184,166,.45), transparent);
       transform: scaleX(0);
       transition: transform .22s ease;
+      z-index: 0;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(24,184,166,.09), transparent 40%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      z-index: 0;
     }
 
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       box-shadow: 0 14px 30px rgba(16, 32, 25, .08);
       border-color: rgba(24,184,166,.22);
+      background: #fffdfc;
     }
 
     .card:hover::after {
       transform: scaleX(1);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .card .card-top {
@@ -556,6 +672,7 @@
       color: #18a694;
       font-weight: 800;
       flex: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
     }
 
     .card h3 {
@@ -584,13 +701,36 @@
       color: white;
       font-weight: 700;
       box-shadow: 0 14px 28px rgba(15,60,47,.16);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.18) 50%, transparent 80%);
+      transform: translateX(-120%);
+      transition: transform .55s ease;
     }
 
     .download-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 30px rgba(15,60,47,.20);
       background: #134234;
+    }
+
+    .download-btn:hover::before {
+      transform: translateX(120%);
+    }
+
+    .download-btn.compact {
+      margin-top: 16px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 11px;
+      font-size: .92rem;
     }
 
     /* Gallery */
@@ -600,6 +740,18 @@
         linear-gradient(180deg, #0d2f25 0%, #0a221a 100%);
       color: white;
       padding: 104px 0 92px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-section::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(10,34,26,0), rgba(10,34,26,1));
+      pointer-events: none;
+      opacity: .55;
     }
 
     .gallery-head {
@@ -608,6 +760,8 @@
       gap: 30px;
       align-items: end;
       margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
     }
 
     .gallery-head .section-title {
@@ -622,6 +776,7 @@
 
     .gallery-stage {
       position: relative;
+      z-index: 1;
     }
 
     .gallery-hero {
@@ -637,6 +792,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: scale(1.001);
     }
 
     .gallery-caption {
@@ -663,12 +819,15 @@
       display: grid;
       place-items: center;
       cursor: pointer;
-      transition: transform .2s ease, background .2s ease;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
     }
 
     .gallery-btn:hover {
       transform: translateY(-2px);
       background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
     }
 
     .gallery-grid {
@@ -690,6 +849,13 @@
       overflow: hidden;
       aspect-ratio: 4 / 3;
       background: rgba(255,255,255,.08);
+      box-shadow: 0 16px 30px rgba(0,0,0,.16);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .mini:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 34px rgba(0,0,0,.20);
     }
 
     .gallery-track {
@@ -699,6 +865,7 @@
       gap: 14px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
       padding-bottom: 6px;
       scrollbar-width: none;
     }
@@ -714,6 +881,12 @@
       background: rgba(255,255,255,.08);
       aspect-ratio: 4 / 3;
       box-shadow: 0 16px 30px rgba(0,0,0,.16);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .gallery-slide:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 36px rgba(0,0,0,.22);
     }
 
     .stats {
@@ -749,11 +922,15 @@
     .contact-section {
       background: var(--paper);
       padding: 104px 0 92px;
+      position: relative;
+      overflow: hidden;
     }
 
     .contact-top {
       max-width: 820px;
       margin-bottom: 34px;
+      position: relative;
+      z-index: 1;
     }
 
     .contact-grid {
@@ -761,6 +938,8 @@
       grid-template-columns: minmax(0, .95fr) minmax(260px, .65fr);
       gap: 36px;
       align-items: start;
+      position: relative;
+      z-index: 1;
     }
 
     .form-grid {
@@ -794,7 +973,11 @@
       padding: 14px 16px;
       color: #182d25;
       outline: none;
-      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    input:hover, textarea:hover {
+      border-color: rgba(24,184,166,.35);
     }
 
     input:focus, textarea:focus {
@@ -822,6 +1005,8 @@
       cursor: pointer;
       box-shadow: 0 14px 28px rgba(15,60,47,.16);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .send:hover {
@@ -840,6 +1025,14 @@
       border-radius: 16px;
       background: white;
       padding: 18px 18px 16px;
+      box-shadow: 0 10px 24px rgba(16, 32, 25, .05);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(16, 32, 25, .08);
+      border-color: rgba(24,184,166,.18);
     }
 
     .contact-box .small {
@@ -868,6 +1061,7 @@
       background: #0c251d;
       color: white;
       padding: 56px 0 24px;
+      position: relative;
     }
 
     .footer-top {
@@ -916,6 +1110,12 @@
       display: block;
       padding: 6px 0;
       color: rgba(255,255,255,.82);
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      transform: translateX(2px);
     }
 
     .footer-logos {
@@ -1225,15 +1425,14 @@
         <p class="section-lead">Araştırma sürecinde üretilen materyaller belgelenmiş ve erişime hazır hâle getirilmiştir.</p>
 
         <div class="cards-grid">
-          <a class="card-link" href="./files/ogretmenelkitabi.pdf" download>
-            <article class="card">
-              <div class="card-top">
-                <div class="ico">📘</div>
-                <h3>Öğretmen El Kitabı</h3>
-              </div>
-              <p>Kapsamlı öğretmen rehberi ve uygulama içerikleri.</p>
-            </article>
-          </a>
+          <article class="card">
+            <div class="card-top">
+              <div class="ico">📘</div>
+              <h3>Öğretmen El Kitabı</h3>
+            </div>
+            <p>Kapsamlı öğretmen rehberi ve uygulama içerikleri.</p>
+            <a class="download-btn compact" href="./files/ogretmenelkitabi.pdf" download>📄 Öğretmen El Kitabını İndir</a>
+          </article>
 
           <article class="card">
             <div class="card-top">
@@ -1275,8 +1474,6 @@
             <p>Atölye kayıtları ve uygulama belgeleri.</p>
           </article>
         </div>
-
-        <a class="download-btn" href="./files/ogretmenelkitabi.pdf" download>📄 Öğretmen El Kitabını İndir</a>
       </div>
     </section>
 
@@ -1457,6 +1654,7 @@
     const track = document.getElementById('galleryTrack');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const topbar = document.querySelector('.topbar');
 
     btn?.addEventListener('click', () => {
       const open = nav.classList.toggle('show');
@@ -1486,6 +1684,22 @@
     }, { threshold: 0.18 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const setNavState = () => {
+      if (!topbar) return;
+      topbar.classList.toggle('scrolled', window.scrollY > 12);
+    };
+
+    setNavState();
+    window.addEventListener('scroll', setNavState, { passive: true });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+      });
+    });
   </script>
 </body>
 </html>
