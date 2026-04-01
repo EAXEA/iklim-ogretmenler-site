@@ -2,13 +2,22 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>İklim Öğretmenler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İklim İçin Öğretmenler</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7f9f8;
+  color: #1a1a1a;
 }
 
 /* HEADER */
@@ -16,8 +25,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 80px;
+  padding: 20px 120px;
   background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   border-bottom: 1px solid #eee;
 }
 
@@ -38,18 +50,18 @@ header {
 
 nav {
   display: flex;
-  gap: 25px;
+  gap: 35px;
 }
 
 nav a {
   text-decoration: none;
-  color: black;
+  color: #333;
   font-weight: 500;
   transition: 0.2s;
 }
 
 nav a:hover {
-  color: #0f5132;
+  color: #174c3c;
 }
 
 .right img {
@@ -58,27 +70,78 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  background: #174c3c;
+  background: linear-gradient(135deg, #174c3c, #1f6f54);
   color: white;
-  padding: 80px 80px;
+  padding: 160px 120px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  max-width: 800px;
 }
 
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  opacity: 0.9;
+}
+
+.button {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 14px 28px;
+  background: white;
+  color: #174c3c;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #e6f2ee;
+}
+
+/* SECTIONS */
 .section {
-  padding: 60px 80px;
+  padding: 120px 120px;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
 }
 
 .card {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 700px;
-  margin-top: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 35px;
+  border-radius: 16px;
+  max-width: 800px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+/* GALLERY */
+.gallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.gallery img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+/* FOOTER */
+footer {
+  background: #174c3c;
+  color: white;
+  padding: 40px 120px;
+  text-align: center;
+  margin-top: 60px;
 }
 </style>
 
@@ -88,41 +151,71 @@ nav a:hover {
 
 <header>
   <div class="left">
-    <img src="./project.png" alt="Proje Logo">
+    <img src="./project.png">
     <span>İklim İçin Değişen ve Dönüştüren Öğretmenler</span>
   </div>
 
   <nav>
-    <a href="#">Hakkında</a>
-    <a href="#">Amaç</a>
-    <a href="#">Çıktılar</a>
-    <a href="#">Galeri</a>
-    <a href="#">İletişim</a>
+    <a href="#about">Hakkında</a>
+    <a href="#amac">Amaç</a>
+    <a href="#cikti">Çıktılar</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#iletisim">İletişim</a>
   </nav>
 
   <div class="right">
-    <img src="./odtu.png" alt="ODTÜ Logo">
+    <img src="./odtu.png">
   </div>
 </header>
 
 <section class="hero">
   <h1>İklim İçin Değişen ve Dönüştüren Öğretmenler</h1>
-  <p>Fen bilimleri öğretmenlerinin iklim eğitimindeki yetkinliklerini güçlendirmek için tasarlanmış akademik bir program.</p>
+  <p>
+    Fen bilimleri öğretmenlerinin iklim değişikliği eğitimindeki yetkinliklerini güçlendirmek için tasarlanmış kapsamlı bir program.
+  </p>
+
+  <div class="button">Detayları İncele</div>
 </section>
 
-<section class="section">
+<section id="about" class="section">
   <h2>Proje Hakkında</h2>
   <div class="card">
     Bu program, öğretmenlerin iklim değişikliği eğitimindeki yetkinliklerini artırmayı hedefleyen kapsamlı bir mesleki gelişim platformudur.
   </div>
 </section>
 
-<section class="section">
+<section id="amac" class="section">
   <h2>Amaç</h2>
   <div class="card">
     Projenin temel amacı, öğretmenlerin iklim değişikliği konusunu öğretirken karşılaştıkları zorlukların üstesinden gelmelerini desteklemektir.
   </div>
 </section>
+
+<section id="cikti" class="section">
+  <h2>Proje Çıktıları</h2>
+  <div class="card">Öğretmen El Kitabı</div>
+  <div class="card">Eğitim İçerikleri</div>
+</section>
+
+<section id="galeri" class="section">
+  <h2>Galeri</h2>
+  <div class="gallery">
+    <img src="https://picsum.photos/300/200">
+    <img src="https://picsum.photos/301/200">
+    <img src="https://picsum.photos/302/200">
+  </div>
+</section>
+
+<section id="iletisim" class="section">
+  <h2>İletişim</h2>
+  <div class="card">
+    info@iklimicin.org
+  </div>
+</section>
+
+<footer>
+  © 2026 ODTÜ Projesi
+</footer>
 
 </body>
 </html>
