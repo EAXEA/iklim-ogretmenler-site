@@ -4,124 +4,213 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>İklim İçin Değişen Öğretmenler</title>
+<title>İklim için Değişen ve Dönüştüren Öğretmenler</title>
 
-<!-- SEO -->
-<meta name="description" content="İklim değişikliği eğitimi üzerine öğretmen gelişim programı. ODTÜ destekli akademik proje.">
+<meta name="description" content="İklim değişikliği eğitimi üzerine öğretmen gelişim programı.">
 
-<!-- Open Graph -->
-<meta property="og:title" content="İklim İçin Değişen Öğretmenler">
-<meta property="og:description" content="Öğretmenler için iklim eğitimi programı">
-<meta property="og:type" content="website">
+<meta property="og:title" content="İklim için Değişen Öğretmenler">
+<meta property="og:description" content="ODTÜ destekli akademik proje">
 <meta property="og:image" content="/preview.jpg">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-<!-- Swiper -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <style>
 
-/* ================= SYSTEM ================= */
+/* ===== DESIGN SYSTEM ===== */
 :root{
-  --space: 24px;
-  --radius: 16px;
-  --bg:#f6f7f5;
-  --text:#1c2b26;
-  --muted:#6b7c76;
+  --space-xs:8px;
+  --space-sm:16px;
+  --space-md:24px;
+  --space-lg:40px;
+  --space-xl:80px;
+
+  --radius:16px;
+  --radius-lg:24px;
+
+  --bg:#f6f7f4;
+  --white:#fff;
+  --text:#13241d;
+  --muted:#5d716a;
+
   --primary:#0f3c2f;
-  --accent:#19b7a6;
+  --accent:#18b8a6;
+
+  --shadow-sm:0 6px 20px rgba(0,0,0,.06);
+  --shadow-md:0 14px 40px rgba(0,0,0,.10);
 }
 
-/* ================= BASE ================= */
+/* ===== BASE ===== */
 body{
   margin:0;
   font-family:Inter;
   background:var(--bg);
   color:var(--text);
+  line-height:1.7;
 }
 
 .container{
-  width:min(1100px, calc(100% - 40px));
+  width:min(1180px, calc(100% - 40px));
   margin:auto;
 }
 
-/* ================= NAV ================= */
-.header{
+/* ===== NAVBAR ===== */
+.topbar{
   position:sticky;
   top:0;
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,.85);
-  border-bottom:1px solid rgba(0,0,0,.05);
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.7);
   transition:.3s;
+  z-index:100;
 }
 
-.nav{
+.topbar.scrolled{
+  background:rgba(255,255,255,.9);
+  box-shadow:var(--shadow-sm);
+}
+
+.nav-wrap{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:18px 0;
 }
 
-/* ================= HERO ================= */
+.nav a{
+  margin-left:24px;
+  position:relative;
+  font-weight:500;
+}
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:.3s;
+}
+.nav a:hover::after{width:100%}
+
+/* ===== HERO ===== */
 .hero{
-  padding:100px 0;
-  background:linear-gradient(180deg,#123d2f,#0c2a22);
+  padding:var(--space-xl) 0;
+  background:linear-gradient(180deg,#124234,#0e3025);
   color:white;
 }
 
 .hero h1{
   font-family:Playfair Display;
-  font-size:3rem;
+  font-size:clamp(2.8rem,5vw,4.5rem);
+  line-height:1.05;
 }
 
-/* ================= BUTTON ================= */
+.hero p{
+  color:rgba(255,255,255,.85);
+  max-width:600px;
+}
+
 .btn{
-  padding:12px 20px;
-  border-radius:10px;
+  display:inline-block;
+  margin-top:var(--space-md);
+  padding:14px 20px;
+  border-radius:12px;
   background:var(--accent);
   color:white;
   font-weight:600;
-  transition:.2s;
+  transition:.25s;
 }
 .btn:hover{
-  transform:translateY(-2px);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-md);
 }
 
-/* ================= SWIPER ================= */
+/* ===== SECTION ===== */
+.section{
+  padding:var(--space-xl) 0;
+}
+
+/* ===== CARDS ===== */
+.card{
+  background:white;
+  border-radius:var(--radius);
+  padding:var(--space-md);
+  box-shadow:var(--shadow-sm);
+  transition:.25s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md);
+}
+
+/* ===== GALLERY ===== */
 .swiper{
-  margin-top:40px;
+  margin-top:var(--space-lg);
 }
 
 .swiper-slide{
-  border-radius:16px;
+  border-radius:var(--radius-lg);
   overflow:hidden;
+  transition:.3s;
+}
+.swiper-slide:hover{
+  transform:scale(1.02);
 }
 
 .swiper-slide img{
   width:100%;
-  height:300px;
+  height:280px;
   object-fit:cover;
 }
 
-/* ================= FORM ================= */
+/* ===== FORM ===== */
 input,textarea{
   width:100%;
   padding:14px;
-  border-radius:10px;
+  border-radius:12px;
   border:1px solid #ddd;
+  margin-bottom:14px;
+  transition:.2s;
 }
 
-/* ================= FOOTER ================= */
+input:focus,textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(24,184,166,.1);
+  outline:none;
+}
+
+.send{
+  background:var(--primary);
+  color:white;
+  padding:14px 20px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s;
+}
+.send:hover{
+  transform:translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
 .footer{
   background:#0c251d;
   color:white;
-  padding:40px;
   text-align:center;
+  padding:40px;
+}
+
+/* ===== ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.6s;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 </style>
@@ -129,10 +218,10 @@ input,textarea{
 
 <body>
 
-<header class="header">
-  <div class="container nav">
+<header class="topbar" id="navbar">
+  <div class="container nav-wrap">
     <strong>İklim Öğretmenleri</strong>
-    <nav>
+    <nav class="nav">
       <a href="#about">Hakkında</a>
       <a href="#gallery">Galeri</a>
       <a href="#contact">İletişim</a>
@@ -141,16 +230,14 @@ input,textarea{
 </header>
 
 <section class="hero">
-  <div class="container">
+  <div class="container reveal">
     <h1>İklim için dönüşen öğretmenler</h1>
     <p>Akademik gelişim programı</p>
-    <br>
     <a class="btn">Projeyi İncele</a>
   </div>
 </section>
 
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="container" style="padding:80px 0;">
+<section id="gallery" class="section container reveal">
   <h2>Galeri</h2>
 
   <div class="swiper">
@@ -172,15 +259,14 @@ input,textarea{
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="container" style="padding:80px 0;">
+<section id="contact" class="section container reveal">
   <h2>İletişim</h2>
 
-  <form action="https://formspree.io/f/yourID" method="POST">
-    <input name="name" placeholder="Ad Soyad" required><br><br>
-    <input name="email" type="email" placeholder="E-posta" required><br><br>
-    <textarea name="message" placeholder="Mesaj"></textarea><br><br>
-    <button class="btn">Gönder</button>
+  <form action="https://formspree.io/f/YOUR_ID" method="POST">
+    <input type="text" name="name" placeholder="Ad Soyad" required>
+    <input type="email" name="email" placeholder="E-posta" required>
+    <textarea name="message" placeholder="Mesaj"></textarea>
+    <button class="send" type="submit">Gönder</button>
   </form>
 </section>
 
@@ -188,7 +274,6 @@ input,textarea{
   © 2026 ODTÜ
 </footer>
 
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
@@ -197,23 +282,36 @@ new Swiper('.swiper', {
   spaceBetween:20,
   slidesPerView:1.2,
   centeredSlides:true,
-  autoplay:{
-    delay:3000
-  },
+  autoplay:{ delay:3000 },
   breakpoints:{
-    768:{slidesPerView:2.2},
+    768:{slidesPerView:2},
     1024:{slidesPerView:3}
   }
 });
+
+/* NAV SCROLL */
+window.addEventListener("scroll",()=>{
+  document.getElementById("navbar")
+    .classList.toggle("scrolled", window.scrollY>30);
+});
+
+/* REVEAL */
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("visible");
+  });
+},{threshold:.2});
+
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXX');
+gtag('config', 'G-XXXX');
 </script>
 
 </body>
