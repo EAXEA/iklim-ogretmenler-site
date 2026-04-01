@@ -6,7 +6,7 @@
   <title>İklim İçin Değişen ve Dönüştüren Öğretmenler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg: #f6f7f4;
@@ -502,6 +502,11 @@
       margin-top: 28px;
     }
 
+    .card-link {
+      display: block;
+      height: 100%;
+    }
+
     .card {
       background: white;
       border-radius: 16px;
@@ -509,12 +514,29 @@
       box-shadow: 0 10px 24px rgba(16, 32, 25, .05);
       padding: 20px;
       min-height: 144px;
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(24,184,166,.45), transparent);
+      transform: scaleX(0);
+      transition: transform .22s ease;
     }
 
     .card:hover {
       transform: translateY(-3px);
       box-shadow: 0 14px 30px rgba(16, 32, 25, .08);
+      border-color: rgba(24,184,166,.22);
+    }
+
+    .card:hover::after {
+      transform: scaleX(1);
     }
 
     .card .card-top {
@@ -550,6 +572,27 @@
       line-height: 1.5;
     }
 
+    .download-btn {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 14px 28px rgba(15,60,47,.16);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba(15,60,47,.20);
+      background: #134234;
+    }
+
     /* Gallery */
     .gallery-section {
       background:
@@ -577,6 +620,10 @@
       margin: 0;
     }
 
+    .gallery-stage {
+      position: relative;
+    }
+
     .gallery-hero {
       border-radius: 18px;
       overflow: hidden;
@@ -598,6 +645,32 @@
       margin: 8px 0 14px;
     }
 
+    .gallery-controls {
+      position: absolute;
+      top: -62px;
+      right: 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .gallery-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      color: white;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .gallery-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.08);
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: 1.18fr 1fr;
@@ -617,6 +690,30 @@
       overflow: hidden;
       aspect-ratio: 4 / 3;
       background: rgba(255,255,255,.08);
+    }
+
+    .gallery-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(250px, 1fr);
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .gallery-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-slide {
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,.08);
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 16px 30px rgba(0,0,0,.16);
     }
 
     .stats {
@@ -853,6 +950,17 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Responsive */
     @media (max-width: 1060px) {
       .hero-grid,
@@ -888,6 +996,16 @@
 
       .brand span {
         max-width: 280px;
+      }
+
+      .gallery-controls {
+        position: static;
+        margin-bottom: 12px;
+        justify-content: flex-end;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -945,6 +1063,10 @@
 
       .logo-strip img {
         height: 20px;
+      }
+
+      .gallery-track {
+        grid-auto-columns: minmax(220px, 78vw);
       }
     }
   </style>
@@ -1036,7 +1158,7 @@
       </div>
     </section>
 
-    <section class="panel" id="about">
+    <section class="panel reveal" id="about">
       <div class="container two-col">
         <div class="story">
           <div class="eyebrow">Arka Plan</div>
@@ -1054,7 +1176,7 @@
           <p>Temel amaç, öğretmenleri salt iklim değişikliği bilgilerini aktarmanın ötesinde, bu konuyu dönüştürücü ve öğrenci merkezli bir stratejiyle ele almalarını sağlayacak pedagojik gelişimleriyle donatmaktır.</p>
         </div>
 
-        <aside class="info-card">
+        <aside class="info-card reveal">
           <div class="info-item">
             <div class="info-icon">🎓</div>
             <div>
@@ -1082,7 +1204,7 @@
       </div>
     </section>
 
-    <section class="panel alt" id="purpose">
+    <section class="panel alt reveal" id="purpose">
       <div class="container purpose-wrap">
         <div class="eyebrow">Odak ve Yönelim</div>
         <h2 class="section-title">Amaç</h2>
@@ -1096,20 +1218,22 @@
       </div>
     </section>
 
-    <section class="panel" id="outputs">
+    <section class="panel reveal" id="outputs">
       <div class="container">
         <div class="eyebrow">Kaynak Merkezi</div>
         <h2 class="section-title">Proje Çıktıları</h2>
         <p class="section-lead">Araştırma sürecinde üretilen materyaller belgelenmiş ve erişime hazır hâle getirilmiştir.</p>
 
         <div class="cards-grid">
-          <article class="card">
-            <div class="card-top">
-              <div class="ico">📘</div>
-              <h3>Öğretmen El Kitabı</h3>
-            </div>
-            <p>Kapsamlı öğretmen rehberi ve uygulama içerikleri.</p>
-          </article>
+          <a class="card-link" href="./files/ogretmenelkitabi.pdf" download>
+            <article class="card">
+              <div class="card-top">
+                <div class="ico">📘</div>
+                <h3>Öğretmen El Kitabı</h3>
+              </div>
+              <p>Kapsamlı öğretmen rehberi ve uygulama içerikleri.</p>
+            </article>
+          </a>
 
           <article class="card">
             <div class="card-top">
@@ -1151,10 +1275,12 @@
             <p>Atölye kayıtları ve uygulama belgeleri.</p>
           </article>
         </div>
+
+        <a class="download-btn" href="./files/ogretmenelkitabi.pdf" download>📄 Öğretmen El Kitabını İndir</a>
       </div>
     </section>
 
-    <section class="gallery-section" id="gallery">
+    <section class="gallery-section reveal" id="gallery">
       <div class="container">
         <div class="gallery-head">
           <div>
@@ -1164,9 +1290,34 @@
           <p class="section-lead">Atölye çalışmaları ve saha uygulamalarından derlenen görseller.</p>
         </div>
 
-        <div class="gallery-hero">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Galeri ana görsel">
+        <div class="gallery-stage">
+          <div class="gallery-controls">
+            <button class="gallery-btn" id="prevBtn" aria-label="Önceki görsel">‹</button>
+            <button class="gallery-btn" id="nextBtn" aria-label="Sonraki görsel">›</button>
+          </div>
+
+          <div class="gallery-track" id="galleryTrack" aria-label="Galeri kaydırma alanı">
+            <div class="gallery-slide">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Galeri ana görsel">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80" alt="Modül geliştirme çalışması">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1400&q=80" alt="Mesleki gelişim semineri">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=80" alt="Çevre gözlemi">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80" alt="Sınıf içi uygulama">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80" alt="Akademik oturum">
+            </div>
+          </div>
         </div>
+
         <div class="gallery-caption">Hizmet içi eğitim atölyesinden bir çalışma anı</div>
 
         <div class="gallery-grid">
@@ -1212,7 +1363,7 @@
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    <section class="contact-section reveal" id="contact">
       <div class="container">
         <div class="contact-top">
           <div class="eyebrow">İletişim</div>
@@ -1303,6 +1454,9 @@
   <script>
     const btn = document.getElementById('menuBtn');
     const nav = document.getElementById('mobileNav');
+    const track = document.getElementById('galleryTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
     btn?.addEventListener('click', () => {
       const open = nav.classList.toggle('show');
@@ -1315,6 +1469,23 @@
         btn.setAttribute('aria-expanded', 'false');
       });
     });
+
+    const scrollGallery = (dir) => {
+      if (!track) return;
+      const amount = Math.max(320, track.clientWidth * 0.85);
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+
+    prevBtn?.addEventListener('click', () => scrollGallery(-1));
+    nextBtn?.addEventListener('click', () => scrollGallery(1));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
