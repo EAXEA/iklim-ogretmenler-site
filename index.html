@@ -11,9 +11,18 @@
 <style>
 
 /* ===== BASE ===== */
-body{margin:0;font-family:Inter;background:#f6f7f4;color:#13241d;line-height:1.75;}
-.container{width:min(1180px, calc(100% - 40px));margin:auto;}
-.section{padding:120px 0;}
+body{
+  margin:0;
+  font-family:Inter;
+  background:#f6f7f4;
+  color:#13241d;
+  line-height:1.75;
+}
+
+.container{
+  width:min(1180px, calc(100% - 40px));
+  margin:auto;
+}
 
 /* ===== NAV ===== */
 .topbar{
@@ -24,68 +33,97 @@ body{margin:0;font-family:Inter;background:#f6f7f4;color:#13241d;line-height:1.7
   border-bottom:1px solid rgba(0,0,0,.05);
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (UPGRADE) ===== */
 .hero{
-  padding:140px 0;
+  padding:160px 0;
   background:
-    radial-gradient(circle at 70% 20%, rgba(24,184,166,.15), transparent 60%),
+    radial-gradient(circle at 70% 20%, rgba(24,184,166,.2), transparent 60%),
     linear-gradient(180deg,#124234,#0e3025);
   color:white;
 }
+
 .hero h1{
   font-family:"Playfair Display";
-  font-size:clamp(3rem,5vw,4.6rem);
+  font-size:clamp(3.2rem,6vw,4.8rem);
+  line-height:1.05;
+  max-width:700px;
 }
+
 .hero p{
   margin-top:20px;
   max-width:600px;
   color:rgba(255,255,255,.85);
+  font-size:1.05rem;
 }
 
-/* ===== ABOUT / TEXT ===== */
-.text-block{
-  max-width:900px;
+/* ===== SECTION ===== */
+.section{
+  padding:140px 0;
 }
 
-/* ===== CARDS ===== */
+/* ===== CARDS (UPGRADE) ===== */
 .cards-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:24px;
-  margin-top:40px;
+  margin-top:50px;
 }
 
 .card{
   background:white;
-  padding:24px;
+  padding:26px;
   border-radius:18px;
   transition:.3s;
 }
+
 .card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 30px 60px rgba(0,0,0,.12);
+  transform:translateY(-10px);
+  box-shadow:0 40px 80px rgba(0,0,0,.12);
+}
+
+.card h3{
+  margin-bottom:10px;
 }
 
 .download-btn{
   display:inline-block;
-  margin-top:14px;
-  padding:10px 14px;
+  margin-top:16px;
+  padding:12px 16px;
   background:#0f3c2f;
   color:white;
-  border-radius:10px;
+  border-radius:12px;
+  font-weight:600;
 }
 
 /* ===== SWIPER ===== */
-.gallery-swiper{margin-top:50px;padding-bottom:60px;}
-.gallery-swiper .swiper-slide{height:320px;border-radius:18px;overflow:hidden;}
-.gallery-swiper img{width:100%;height:100%;object-fit:cover;}
+.gallery-swiper{
+  margin-top:50px;
+  padding-bottom:60px;
+}
+
+.gallery-swiper .swiper-slide{
+  height:340px;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.gallery-swiper .swiper-slide:hover{
+  transform:scale(1.03);
+}
+
+.gallery-swiper img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
 .swiper-button-prev,
 .swiper-button-next{
-  background:rgba(0,0,0,.3);
-  width:44px;
-  height:44px;
-  border-radius:10px;
+  background:rgba(0,0,0,.35);
+  width:46px;
+  height:46px;
+  border-radius:12px;
   color:white;
 }
 
@@ -94,12 +132,18 @@ body{margin:0;font-family:Inter;background:#f6f7f4;color:#13241d;line-height:1.7
   background:#0c251d;
   color:white;
   text-align:center;
-  padding:40px;
+  padding:50px;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:900px){
-  .cards-grid{grid-template-columns:1fr;}
+  .cards-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:120px 0;
+  }
 }
 
 </style>
@@ -113,7 +157,6 @@ body{margin:0;font-family:Inter;background:#f6f7f4;color:#13241d;line-height:1.7
 </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <div class="container">
 <h1>İklim için Değişen ve Dönüştüren Öğretmenler</h1>
@@ -121,35 +164,6 @@ body{margin:0;font-family:Inter;background:#f6f7f4;color:#13241d;line-height:1.7
 </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section">
-<div class="container text-block">
-<h2>Proje Hakkında</h2>
-
-<p>Bu program, öğretmenlerin iklim değişikliği eğitimindeki yetkinliklerini artırmayı hedefleyen kapsamlı bir mesleki gelişim ve etkileşim platformudur.</p>
-
-<p>Bu çalışma, Orta Doğu Teknik Üniversitesi (ODTÜ) tarafından desteklenen bir doktora tez projesidir.</p>
-
-<p>Program, Ankara ilindeki ortaokullarda görev yapan fen bilimleri öğretmenlerinin katılımıyla gerçekleştirilmiştir.</p>
-
-<p>Temel amaç, öğretmenlerin iklim değişikliğini dönüştürücü bir yaklaşımla ele almalarını sağlamaktır.</p>
-</div>
-</section>
-
-<!-- PURPOSE -->
-<section class="section">
-<div class="container text-block">
-<h2>Amaç</h2>
-
-<p>Projenin amacı öğretmenlerin iklim değişikliği konusunu öğretirken karşılaştıkları zorlukları aşmalarını desteklemektir.</p>
-
-<p>Öğrenci merkezli ve aktif öğrenme stratejileri geliştirilmektedir.</p>
-
-<p>Öğretmenlerin pedagojik yetkinlikleri artırılmaktadır.</p>
-</div>
-</section>
-
-<!-- OUTPUTS -->
 <section class="section">
 <div class="container">
 <h2>Proje Çıktıları</h2>
@@ -176,7 +190,6 @@ body{margin:0;font-family:Inter;background:#f6f7f4;color:#13241d;line-height:1.7
 </div>
 </section>
 
-<!-- GALLERY -->
 <section class="section">
 <div class="container">
 <h2>Galeri</h2>
