@@ -672,21 +672,26 @@
     }
 
     .team-avatar {
-      width: 72px;
-      height: 72px;
+      width: 84px;
+      height: 84px;
       border-radius: 50%;
       flex: none;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.34), transparent 30%),
-        linear-gradient(180deg, #d9f4ef, #b9e8df);
-      color: #0f3c2f;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: .03em;
-      box-shadow: inset 0 0 0 1px rgba(24,184,166,.18), 0 10px 20px rgba(16,32,25,.08);
-      user-select: none;
+      overflow: hidden;
+      background: linear-gradient(180deg, #eaf8f5, #d7f0ea);
+      box-shadow: inset 0 0 0 1px rgba(24,184,166,.16), 0 10px 20px rgba(16,32,25,.08);
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .team-card:hover .team-avatar img {
+      transform: scale(1.06);
     }
 
     .team-copy {
@@ -1454,7 +1459,9 @@
           <div class="team-grid team-grid-project">
             <article class="team-card reveal delay-1">
               <div class="team-top">
-                <div class="team-avatar" aria-hidden="true">ES</div>
+                <div class="team-avatar">
+                  <img src="./files/team/elvan.jpeg" alt="Prof. Dr. Elvan Şahin">
+                </div>
                 <div class="team-copy">
                   <h4 class="team-name">Prof. Dr. Elvan Şahin</h4>
                   <p class="team-role">Proje Yürütücüsü</p>
@@ -1466,7 +1473,9 @@
 
             <article class="team-card reveal delay-2">
               <div class="team-top">
-                <div class="team-avatar" aria-hidden="true">CB</div>
+                <div class="team-avatar">
+                  <img src="./files/team/ceren.jpg" alt="Arş. Gör. Ceren Başer-Kanhak">
+                </div>
                 <div class="team-copy">
                   <h4 class="team-name">Arş. Gör. Ceren Başer-Kanhak</h4>
                   <p class="team-role">Araştırma Görevlisi ve Doktora Öğrencisi</p>
@@ -1484,7 +1493,9 @@
           <div class="team-grid team-grid-mentors">
             <article class="team-card reveal delay-1">
               <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
-                <div class="team-avatar" aria-hidden="true">GKS</div>
+                <div class="team-avatar">
+                  <img src="./files/team/guliz.jpeg" alt="Doç. Dr. Güliz Karaarslan-Semiz">
+                </div>
                 <div class="team-copy">
                   <h4 class="team-name">Doç. Dr. Güliz Karaarslan-Semiz</h4>
                   <p class="team-role">Eğitmen</p>
@@ -1496,7 +1507,9 @@
 
             <article class="team-card reveal delay-2">
               <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
-                <div class="team-avatar" aria-hidden="true">MŞ</div>
+                <div class="team-avatar">
+                  <img src="./files/team/mehmet.webp" alt="Doç. Dr. Mehmet Şen">
+                </div>
                 <div class="team-copy">
                   <h4 class="team-name">Doç. Dr. Mehmet Şen</h4>
                   <p class="team-role">Eğitmen</p>
@@ -1508,7 +1521,9 @@
 
             <article class="team-card reveal delay-3">
               <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
-                <div class="team-avatar" aria-hidden="true">SK</div>
+                <div class="team-avatar">
+                  <img src="./files/team/selin.jpeg" alt="Selin Kalender-Sert">
+                </div>
                 <div class="team-copy">
                   <h4 class="team-name">Selin Kalender-Sert</h4>
                   <p class="team-role">Eğitmen</p>
