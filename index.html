@@ -611,6 +611,120 @@
       background: #134234;
     }
 
+    /* Team */
+    .team-section {
+      padding: 104px 0;
+      background: var(--bg);
+    }
+
+    .team-block {
+      margin-top: 34px;
+    }
+
+    .team-block + .team-block {
+      margin-top: 56px;
+    }
+
+    .team-heading {
+      margin: 0 0 18px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+      line-height: 1;
+      color: #173126;
+      letter-spacing: -.02em;
+    }
+
+    .team-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .team-grid.team-grid-project {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-grid.team-grid-mentors {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .team-card {
+      background: white;
+      border: 1px solid rgba(18,32,26,.08);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(16, 32, 25, .08), 0 8px 16px rgba(16, 32, 25, .06);
+      border-color: rgba(24,184,166,.26);
+    }
+
+    .team-top {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .team-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      flex: none;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.34), transparent 30%),
+        linear-gradient(180deg, #d9f4ef, #b9e8df);
+      color: #0f3c2f;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: .03em;
+      box-shadow: inset 0 0 0 1px rgba(24,184,166,.18), 0 10px 20px rgba(16,32,25,.08);
+      user-select: none;
+    }
+
+    .team-copy {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .team-name {
+      margin: 0 0 5px;
+      color: #163027;
+      font-size: 1.02rem;
+      line-height: 1.22;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+
+    .team-role {
+      margin: 0 0 4px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .92rem;
+      line-height: 1.35;
+    }
+
+    .team-affiliation {
+      margin: 0;
+      color: var(--muted);
+      font-size: .84rem;
+      line-height: 1.42;
+    }
+
+    .team-bio {
+      margin: 0;
+      color: var(--text);
+      font-size: .93rem;
+      line-height: 1.72;
+    }
+
     /* Gallery */
     .gallery-section {
       background:
@@ -723,7 +837,7 @@
 
     .stat strong {
       display: block;
-      font-family: "Playfair Display", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 2.7rem;
       line-height: 1;
       color: white;
@@ -1026,6 +1140,8 @@
         gap: 14px;
       }
 
+      .team-grid.team-grid-project,
+      .team-grid.team-grid-mentors,
       .cards-grid,
       .stats {
         grid-template-columns: 1fr;
@@ -1090,7 +1206,8 @@
       }
 
       .panel,
-      .contact-section {
+      .contact-section,
+      .team-section {
         padding: 74px 0;
       }
 
@@ -1104,6 +1221,16 @@
 
       .form-grid {
         grid-template-columns: 1fr;
+      }
+
+      .team-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .team-copy {
+        width: 100%;
       }
     }
   </style>
@@ -1121,6 +1248,7 @@
         <a href="#about">Hakkında</a>
         <a href="#purpose">Amaç</a>
         <a href="#outputs">Çıktılar</a>
+        <a href="#team">Ekip</a>
         <a href="#gallery">Galeri</a>
         <a href="#contact">İletişim</a>
       </nav>
@@ -1140,6 +1268,7 @@
       <a href="#about">Hakkında</a>
       <a href="#purpose">Amaç</a>
       <a href="#outputs">Çıktılar</a>
+      <a href="#team">Ekip</a>
       <a href="#gallery">Galeri</a>
       <a href="#contact">İletişim</a>
     </div>
@@ -1314,7 +1443,86 @@
       </div>
     </section>
 
-    <section class="gallery-section reveal delay-4" id="gallery">
+    <section class="team-section reveal delay-4" id="team">
+      <div class="container">
+        <div class="eyebrow">Ekibimiz</div>
+        <h2 class="section-title">Ekip</h2>
+
+        <div class="team-block">
+          <h3 class="team-heading">Proje Ekibimiz</h3>
+
+          <div class="team-grid team-grid-project">
+            <article class="team-card reveal delay-1">
+              <div class="team-top">
+                <div class="team-avatar" aria-hidden="true">ES</div>
+                <div class="team-copy">
+                  <h4 class="team-name">Prof. Dr. Elvan Şahin</h4>
+                  <p class="team-role">Proje Yürütücüsü</p>
+                  <p class="team-affiliation">ODTÜ Matematik ve Fen Eğitimi Bölümü</p>
+                </div>
+              </div>
+              <p class="team-bio">Orta Doğu Teknik Üniversitesi Matematik ve Fen Eğitimi Bölümü öğretim üyesidir. Fen eğitimi alanında doktora (2008) ve yüksek lisans (2005), kimya eğitimi alanında lisans (2002) derecelerine sahiptir. Başlıca araştırma alanları sürdürülebilir kalkınma için eğitim ve çevre okuryazarlığıdır.</p>
+            </article>
+
+            <article class="team-card reveal delay-2">
+              <div class="team-top">
+                <div class="team-avatar" aria-hidden="true">CB</div>
+                <div class="team-copy">
+                  <h4 class="team-name">Arş. Gör. Ceren Başer-Kanhak</h4>
+                  <p class="team-role">Araştırma Görevlisi ve Doktora Öğrencisi</p>
+                  <p class="team-affiliation">ODTÜ Matematik ve Fen Eğitimi Bölümü</p>
+                </div>
+              </div>
+              <p class="team-bio">Fen bilimleri eğitimi alanında yüksek lisans (2021) ve lisans (2018) derecelerine sahiptir. Başlıca araştırma alanları sürdürülebilir kalkınma için eğitim, iklim değişikliği eğitimi ve insan-çevre ilişkisi araştırmalarıdır.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="team-block">
+          <h3 class="team-heading">Eğitmenlerimiz</h3>
+
+          <div class="team-grid team-grid-mentors">
+            <article class="team-card reveal delay-1">
+              <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
+                <div class="team-avatar" aria-hidden="true">GKS</div>
+                <div class="team-copy">
+                  <h4 class="team-name">Doç. Dr. Güliz Karaarslan-Semiz</h4>
+                  <p class="team-role">Eğitmen</p>
+                  <p class="team-affiliation">Vechta Üniversitesi, Almanya</p>
+                </div>
+              </div>
+              <p class="team-bio">2016 yılında ODTÜ Fen Bilimleri Eğitimi'nde Sürdürülebilir Kalkınma için Eğitim kapsamında Sistemsel Düşünce Becerileri konusu üzerine doktorasını tamamlamıştır. Ana çalışma alanları ilköğretim seviyesi sürdürülebilir kalkınma için eğitim ve iklim değişikliği eğitimidir.</p>
+            </article>
+
+            <article class="team-card reveal delay-2">
+              <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
+                <div class="team-avatar" aria-hidden="true">MŞ</div>
+                <div class="team-copy">
+                  <h4 class="team-name">Doç. Dr. Mehmet Şen</h4>
+                  <p class="team-role">Eğitmen</p>
+                  <p class="team-affiliation">ODTÜ İlköğretim Bölümü</p>
+                </div>
+              </div>
+              <p class="team-bio">2021 yılında doktorasını tamamlamıştır. Doktora sürecinde ortaokul öğrencilerinin fen derslerinde argümantasyon sürecine katılımlarını, kullandıkları argümantasyon şemalarını ve argümantasyon eğitiminin bilimsel okuryazarlık düzeyine etkisini gerçek sınıf ortamında araştırmıştır.</p>
+            </article>
+
+            <article class="team-card reveal delay-3">
+              <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
+                <div class="team-avatar" aria-hidden="true">SK</div>
+                <div class="team-copy">
+                  <h4 class="team-name">Selin Kalender-Sert</h4>
+                  <p class="team-role">Eğitmen</p>
+                  <p class="team-affiliation">İSTEK Okulları Eğitim Uzmanı</p>
+                </div>
+              </div>
+              <p class="team-bio">Hacettepe Üniversitesi Fen Bilimleri Öğretmenliği ve Ankara Üniversitesi Yaratıcı Drama Yüksek Lisans mezunudur. Çağdaş Drama Derneği Yaratıcı Drama Eğitmenlik ve Uludağ Üniversitesi Doğa ve Orman Pedagojisi Eğitmenlik Programlarını tamamlamıştır. Öğretmenlerin mesleki gelişimi ve doğa temelli çalışmalarda uzmanlaşmıştır.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section reveal delay-5" id="gallery">
       <div class="container">
         <div class="gallery-head">
           <div>
@@ -1375,7 +1583,7 @@
       </div>
     </section>
 
-    <section class="contact-section reveal delay-5" id="contact">
+    <section class="contact-section reveal delay-6" id="contact">
       <div class="container">
         <div class="contact-top">
           <div class="eyebrow">İletişim</div>
@@ -1428,6 +1636,7 @@
             <a href="#about">Hakkında</a>
             <a href="#purpose">Amaç</a>
             <a href="#outputs">Çıktılar</a>
+            <a href="#team">Ekip</a>
             <a href="#gallery">Galeri</a>
             <a href="#contact">İletişim</a>
           </div>
