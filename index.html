@@ -339,87 +339,30 @@
       background: rgba(255,255,255,.08);
     }
 
-    .hero-card {
-      background: rgba(6, 30, 22, .62);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 20px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.24);
-      padding: 18px;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-card-header {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .hero-card-header img {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-      flex: none;
-    }
-
-    .hero-card-header strong {
-      display: block;
-      color: white;
-      font-size: .98rem;
-      line-height: 1.15;
-    }
-
-    .hero-card-header span {
-      display: block;
-      margin-top: 2px;
-      color: rgba(255,255,255,.62);
-      font-size: .74rem;
-    }
-
-    .meta-list {
-      display: grid;
-      gap: 10px;
-      padding-top: 6px;
-    }
-
-    .meta-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 14px;
-      padding: 10px 0;
-      border-top: 1px solid rgba(255,255,255,.07);
-      align-items: center;
-    }
-
-    .meta-row:first-child { border-top: 0; }
-    .meta-row .label {
-      color: rgba(255,255,255,.42);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: .72rem;
-      font-weight: 800;
-    }
-
-    .meta-row .value {
-      color: rgba(255,255,255,.92);
-      font-size: .92rem;
-      font-weight: 600;
-    }
-
-    .logo-strip {
+    .hero-visual {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
+      justify-content: center;
+      min-height: 360px;
     }
 
-    .logo-strip img {
-      height: 22px;
+    .hero-logo-frame {
+      width: min(100%, 420px);
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .hero-logo-frame img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      opacity: .95;
+      filter: drop-shadow(0 16px 30px rgba(0,0,0,.22));
     }
 
     /* Sections */
@@ -514,7 +457,7 @@
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 16px;
       margin-top: 28px;
     }
@@ -530,7 +473,7 @@
       border: 1px solid rgba(18,32,26,.08);
       box-shadow: 0 10px 24px rgba(16, 32, 25, .05);
       padding: 20px;
-      min-height: 144px;
+      min-height: 168px;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       position: relative;
       overflow: hidden;
@@ -735,14 +678,14 @@
 
     .team-top {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       align-items: flex-start;
       margin-bottom: 16px;
     }
 
     .team-avatar {
-      width: 84px;
-      height: 84px;
+      width: 112px;
+      height: 112px;
       border-radius: 50%;
       flex: none;
       overflow: hidden;
@@ -852,7 +795,7 @@
     }
 
     .gallery-head .section-lead {
-      color: rgba(255,255,255,.42);
+      color: rgba(255,255,255,.68);
       max-width: none;
       margin: 0;
       text-wrap: balance;
@@ -1092,6 +1035,10 @@
       line-height: 1.55;
     }
 
+    .contact-box.team strong {
+      color: #173126;
+    }
+
     /* Footer */
     .footer {
       background: #0c251d;
@@ -1139,6 +1086,15 @@
       letter-spacing: .18em;
       color: rgba(255,255,255,.42);
       margin: 0 0 14px;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, auto);
+      gap: 0 28px;
+      align-items: start;
     }
 
     .footer-links a {
@@ -1244,7 +1200,8 @@
       .team-grid.team-grid-project,
       .team-grid.team-grid-mentors,
       .cards-grid,
-      .stats {
+      .stats,
+      .footer-links-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1381,7 +1338,7 @@
         <div class="fade-up">
           <div class="hero-kicker">ODTÜ Eğitim Fakültesi · BAP 11858</div>
           <h1>İklim için Değişen<br>ve Dönüştüren <em>Öğretmenler</em></h1>
-          <p>Fen bilimleri öğretmenlerinin iklim eğitimindeki yetkinliklerini güçlendirmek için tasarlanan işbirlikçi bir akademik program.</p>
+          <p>Fen bilimleri öğretmenlerinin iklim eğitimindeki yetkinliklerini güçlendirmek için tasarlanan iş birliğine dayalı bir akademik program.</p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#about">Projeyi İncele →</a>
@@ -1389,37 +1346,9 @@
           </div>
         </div>
 
-        <aside class="hero-card fade-up" aria-label="Proje bilgileri">
-          <div class="hero-card-header">
+        <aside class="hero-visual fade-up" aria-label="Proje logosu">
+          <div class="hero-logo-frame">
             <img src="./project.png" alt="Proje logosu">
-            <div>
-              <strong>Doktora Tez Projesi</strong>
-              <span>ODTÜ BAP · 11858</span>
-            </div>
-          </div>
-
-          <div class="meta-list">
-            <div class="meta-row">
-              <div class="label">Yürütücü</div>
-              <div class="value">ODTÜ Eğitim Fakültesi</div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Alan</div>
-              <div class="value">İklim Değişikliği Eğitimi</div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Katılımcılar</div>
-              <div class="value">Fen Bilimleri Öğretmenleri</div>
-            </div>
-            <div class="meta-row">
-              <div class="label">Destek</div>
-              <div class="value">BAP Koordinasyon Birimi</div>
-            </div>
-          </div>
-
-          <div class="logo-strip">
-            <img src="./odtu.png" alt="ODTÜ">
-            <img src="./project.png" alt="Proje">
           </div>
         </aside>
       </div>
@@ -1438,7 +1367,7 @@
 
           <p>Bu çalışma, Orta Doğu Teknik Üniversitesi (ODTÜ) Bilimsel Araştırma Projeleri Koordinasyon Birimi tarafından 11858 proje numarası ile desteklenen bir doktora tez projesidir. Tüm araştırma ve uygulama süreçleri ODTÜ Eğitim Fakültesi bünyesinde yürütülmektedir.</p>
 
-          <p>Program, Ankara ilindeki ortaokullarda aktif olarak görev yapan fen bilimleri öğretmenlerinin katılımıyla hayata geçirilmiştir. Eğitim modelinin tasarımı, öğretmenlerin sınıf içindeki gerçek ihtiyaçları göz önünde bulundurularak, öğretmenlerle birlikte işbirlikçi bir şekilde geliştirilmiş ve uygulanmıştır.</p>
+          <p>Program, Ankara ilindeki ortaokullarda aktif olarak görev yapan fen bilimleri öğretmenlerinin katılımıyla hayata geçirilmiştir. Eğitim modelinin tasarımı, öğretmenlerin sınıf içindeki gerçek ihtiyaçları göz önünde bulundurularak, öğretmenlerle iş birliği içinde geliştirilmiş ve uygulanmıştır.</p>
 
           <p>Temel amaç, öğretmenleri salt iklim değişikliği bilgilerini aktarmanın ötesinde, bu konuyu dönüştürücü ve öğrenci merkezli bir stratejiyle ele almalarını sağlayacak pedagojik gelişimleriyle donatmaktır.</p>
         </div>
@@ -1447,16 +1376,8 @@
           <div class="info-item">
             <div class="info-icon">🎓</div>
             <div>
-              <h3>Doktora Tez Projesi</h3>
-              <p>ODTÜ Eğitim Fakültesi bünyesinde titizlikle yürütülen akademik bir araştırmadır.</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">BAP</div>
-            <div>
-              <h3>ODTÜ BAP Desteği</h3>
-              <p>Üniversitenin Bilimsel Araştırma Projeleri (BAP) Birimi tarafından, 11858 proje numarasıyla desteklenmektedir.</p>
+              <h3>Prof. Dr. Elvan Şahin &amp; Arş. Gör. Ceren Başer Kanbak</h3>
+              <p>Bu çalışma, danışmanlığını Prof. Dr. Elvan Şahin’in yürüttüğü ve doktora öğrencisi Ceren Başer Kanbak tarafından hazırlanan bir doktora tez çalışmasıdır.</p>
             </div>
           </div>
 
@@ -1464,7 +1385,23 @@
             <div class="info-icon">👥</div>
             <div>
               <h3>Hizmet-İçi Öğretmen Katılımı</h3>
-              <p>Ankara ilindeki görevdeki fen bilimleri öğretmenleri ile işbirliği içinde tasarlanmış ve uygulanmıştır.</p>
+              <p>Ankara ilinde görev yapmakta olan öğretmenler ile iş birliği içinde uygulanmıştır.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">BAP</div>
+            <div>
+              <h3>ODTÜ BAP Desteği</h3>
+              <p>Üniversitenin Bilimsel Araştırma Projeleri (BAP) birimi tarafından BAP Tez-D kapsamında 11858 proje numarasıyla desteklenmektedir.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🌍</div>
+            <div>
+              <h3>İklim Değişikliği Eğitimi</h3>
+              <p>Projenin odaklandığı alan iklim değişikliği eğitimidir.</p>
             </div>
           </div>
         </aside>
@@ -1497,48 +1434,31 @@
               <div class="ico">📘</div>
               <h3>Öğretmen El Kitabı</h3>
             </div>
-            <p>Kapsamlı öğretmen rehberi ve uygulama içerikleri.</p>
-            <a class="download-btn" href="./files/ogretmenelkitabi.pdf" download>📄 Öğretmen El Kitabını İndir</a>
+            <p>Öğretmenlerin sınıf içi uygulamalarında kullanabilecekleri içerik ve etkinlikleri içeren rehber. (Yakında yüklenecek)</p>
           </article>
 
           <article class="card reveal delay-2">
             <div class="card-top">
-              <div class="ico">📄</div>
-              <h3>Araştırma Raporları</h3>
+              <div class="ico">🎬</div>
+              <h3>Etkinlikten Kesitler</h3>
             </div>
-            <p>Akademik analizler ve proje bulguları.</p>
+            <p>Oturumlara kısa bir bakış.</p>
           </article>
 
           <article class="card reveal delay-3">
             <div class="card-top">
-              <div class="ico">🖥️</div>
-              <h3>Seminer Materyalleri</h3>
+              <div class="ico">🏫</div>
+              <h3>Sınıf İçi Uygulama Örnekleri</h3>
             </div>
-            <p>Eğitim sunumları ve içerikler.</p>
+            <p>Öğretmenlerimizin sınıf içi uygulamalarından örnek paylaşımlar.</p>
           </article>
 
           <article class="card reveal delay-4">
             <div class="card-top">
-              <div class="ico">🌱</div>
-              <h3>Müdahale Stratejileri</h3>
+              <div class="ico">📄</div>
+              <h3>Araştırma Raporları</h3>
             </div>
-            <p>Sınıf içi uygulama önerileri.</p>
-          </article>
-
-          <article class="card reveal delay-5">
-            <div class="card-top">
-              <div class="ico">ℹ️</div>
-              <h3>Bilgilendirme Materyalleri</h3>
-            </div>
-            <p>Okul ve veli iletişim dokümanları.</p>
-          </article>
-
-          <article class="card reveal delay-6">
-            <div class="card-top">
-              <div class="ico">🗂️</div>
-              <h3>Süreç Arşivi</h3>
-            </div>
-            <p>Atölye kayıtları ve uygulama belgeleri.</p>
+            <p>Akademik paylaşımlar.</p>
           </article>
         </div>
       </div>
@@ -1561,24 +1481,24 @@
                 <div class="team-copy">
                   <h4 class="team-name">Prof. Dr. Elvan Şahin</h4>
                   <p class="team-role">Proje Yürütücüsü</p>
-                  <p class="team-affiliation">ODTÜ Matematik ve Fen Eğitimi Bölümü</p>
+                  <p class="team-affiliation">ODTÜ Matematik ve Fen Bilimleri Eğitimi Bölümü</p>
                 </div>
               </div>
-              <p class="team-bio">Orta Doğu Teknik Üniversitesi Matematik ve Fen Eğitimi Bölümü öğretim üyesidir. Fen eğitimi alanında doktora (2008) ve yüksek lisans (2005), kimya eğitimi alanında lisans (2002) derecelerine sahiptir. Başlıca araştırma alanları sürdürülebilir kalkınma için eğitim ve çevre okuryazarlığıdır.</p>
+              <p class="team-bio">Orta Doğu Teknik Üniversitesi, Matematik ve Fen Bilimleri Eğitimi Bölümü öğretim üyesidir. Fen eğitimi alanında doktora (2008) ve yüksek lisans (2005), kimya eğitimi alanında lisans (2002) derecelerine sahiptir. Başlıca araştırma alanları sürdürülebilir kalkınma için eğitim ve çevre okuryazarlığıdır.</p>
             </article>
 
             <article class="team-card reveal delay-2">
               <div class="team-top">
                 <div class="team-avatar">
-                  <img src="./files/team/ceren.jpg" alt="Arş. Gör. Ceren Başer-Kanhak">
+                  <img src="./files/team/ceren.jpg" alt="Arş. Gör. Ceren Başer Kanbak">
                 </div>
                 <div class="team-copy">
-                  <h4 class="team-name">Arş. Gör. Ceren Başer-Kanhak</h4>
+                  <h4 class="team-name">Arş. Gör. Ceren Başer Kanbak</h4>
                   <p class="team-role">Araştırma Görevlisi ve Doktora Öğrencisi</p>
-                  <p class="team-affiliation">ODTÜ Matematik ve Fen Eğitimi Bölümü</p>
+                  <p class="team-affiliation">ODTÜ Matematik ve Fen Bilimleri Eğitimi Bölümü</p>
                 </div>
               </div>
-              <p class="team-bio">Fen bilimleri eğitimi alanında yüksek lisans (2021) ve lisans (2018) derecelerine sahiptir. Başlıca araştırma alanları sürdürülebilir kalkınma için eğitim, iklim değişikliği eğitimi ve insan-çevre ilişkisi araştırmalarıdır.</p>
+              <p class="team-bio">Orta Doğu Teknik Üniversitesi, Matematik ve Fen Bilimleri Eğitimi bölümünde araştırma görevlisi ve doktora öğrencisidir. Aynı bölümden lisans (2018) ve yüksek lisans (2021) derecelerine sahiptir.</p>
             </article>
           </div>
         </div>
@@ -1590,10 +1510,10 @@
             <article class="team-card reveal delay-1">
               <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
                 <div class="team-avatar">
-                  <img src="./files/team/guliz.jpeg" alt="Doç. Dr. Güliz Karaarslan-Semiz">
+                  <img src="./files/team/guliz.jpeg" alt="Doç. Dr. Güliz Karaarslan Semiz">
                 </div>
                 <div class="team-copy">
-                  <h4 class="team-name">Doç. Dr. Güliz Karaarslan-Semiz</h4>
+                  <h4 class="team-name">Doç. Dr. Güliz Karaarslan Semiz</h4>
                   <p class="team-role">Eğitmen</p>
                   <p class="team-affiliation">Vechta Üniversitesi, Almanya</p>
                 </div>
@@ -1609,7 +1529,7 @@
                 <div class="team-copy">
                   <h4 class="team-name">Doç. Dr. Mehmet Şen</h4>
                   <p class="team-role">Eğitmen</p>
-                  <p class="team-affiliation">ODTÜ İlköğretim Bölümü</p>
+                  <p class="team-affiliation">TED Üniversitesi, Temel Eğitim Bölümü Sınıf Eğitimi Anabilim Dalı</p>
                 </div>
               </div>
               <p class="team-bio">2021 yılında doktorasını tamamlamıştır. Doktora sürecinde ortaokul öğrencilerinin fen derslerinde argümantasyon sürecine katılımlarını, kullandıkları argümantasyon şemalarını ve argümantasyon eğitiminin bilimsel okuryazarlık düzeyine etkisini gerçek sınıf ortamında araştırmıştır.</p>
@@ -1618,10 +1538,10 @@
             <article class="team-card reveal delay-3">
               <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
                 <div class="team-avatar">
-                  <img src="./files/team/selin.jpeg" alt="Selin Kalender-Sert">
+                  <img src="./files/team/selin.jpeg" alt="Selin Kalender Sert">
                 </div>
                 <div class="team-copy">
-                  <h4 class="team-name">Selin Kalender-Sert</h4>
+                  <h4 class="team-name">Selin Kalender Sert</h4>
                   <p class="team-role">Eğitmen</p>
                   <p class="team-affiliation">İSTEK Okulları Eğitim Uzmanı</p>
                 </div>
@@ -1637,10 +1557,10 @@
       <div class="container">
         <div class="gallery-head">
           <div>
-            <div class="eyebrow">Sahadan</div>
+            <div class="eyebrow">Etkinlikten</div>
             <h2 class="section-title">Galeri</h2>
           </div>
-          <p class="section-lead">Atölye çalışmaları ve saha uygulamalarından derlenen görseller.</p>
+          <p class="section-lead">"İklim için Değişen ve Dönüştüren Öğretmenler" Mesleki Gelişim Programı’ndan derlenen görseller.</p>
         </div>
 
         <div class="gallery-stage">
@@ -1675,20 +1595,20 @@
           </div>
         </div>
 
-        <div class="gallery-caption">Hizmet içi eğitim atölyesinden bir çalışma anı</div>
+        <div class="gallery-caption">Etkinliklerden bir çalışma anı</div>
 
         <div class="stats">
           <div class="stat">
-            <strong>6+</strong>
-            <span>Atölye Oturumu</span>
+            <strong>10+</strong>
+            <span>Etkinlik</span>
           </div>
           <div class="stat">
             <strong>20+</strong>
             <span>Katılımcı</span>
           </div>
           <div class="stat">
-            <strong>4</strong>
-            <span>Eğitim Modülü</span>
+            <strong>7</strong>
+            <span>Tema</span>
           </div>
         </div>
       </div>
@@ -1699,29 +1619,29 @@
         <div class="contact-top">
           <div class="eyebrow">İletişim</div>
           <h2 class="section-title">İletişime Geçin</h2>
-          <p class="section-lead">Proje hakkında bilgi almak, işbirliği önermek veya materyallere erişim talep etmek için aşağıdaki kanalları kullanabilirsiniz.</p>
+          <p class="section-lead">Proje hakkında bilgi almak, iş birliği önermek veya materyallere erişim talep etmek için aşağıdaki kanalları kullanabilirsiniz.</p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-story">
             <div class="eyebrow">Doğrudan iletişim</div>
-            <p class="contact-copy">Mesajlarınız proje ekibine doğrudan ulaşır. Eğitim materyalleri, işbirliği önerileri ve erişim talepleri için sağdaki e-posta adresini kullanabilirsiniz.</p>
+            <p class="contact-copy">Mesajlarınız proje ekibine doğrudan ulaşır. Eğitim materyalleri, iş birliği önerileri ve erişim talepleri için sağdaki e-posta adresini kullanabilirsiniz.</p>
           </div>
 
           <div class="contact-side">
+            <div class="contact-box team">
+              <span class="small">Proje Ekibi</span>
+              <strong>Prof. Dr. Elvan Şahin</strong>
+              <p>Arş. Gör. Ceren Başer Kanbak</p>
+            </div>
             <div class="contact-box">
               <span class="small">E-Posta</span>
               <strong>iklimicin@gmail.com</strong>
             </div>
             <div class="contact-box">
-              <span class="small">Yürütücü Kurum</span>
-              <strong>Orta Doğu Teknik Üniversitesi</strong>
-              <p>Eğitim Fakültesi</p>
-            </div>
-            <div class="contact-box">
               <span class="small">Destekleyen Birim</span>
               <strong>ODTÜ BAP Koordinasyon Birimi</strong>
-              <p>Proje No: 11858</p>
+              <p>BAP Tez-D (Proje No: 11858)</p>
             </div>
           </div>
         </div>
@@ -1732,38 +1652,35 @@
       <div class="container">
         <div class="footer-top">
           <div>
-            <p>Öğretmenlerin iklim eğitiminde dönüştürücü bir rol üstlenmesi için tasarlanan araştırma temelli akademik program.</p>
-            <div class="footer-brand" style="margin-top:22px;">
-              <img src="./project.png" alt="Proje logosu">
+            <div class="footer-brand" style="margin-top:0;">
+              <img src="./odtu.png" alt="ODTÜ logosu">
               <div>
                 <strong>İklim için Değişen ve Dönüştüren Öğretmenler</strong>
               </div>
             </div>
-            <p style="max-width:360px;">ODTÜ Eğitim Fakültesi bünyesinde yürütülen bu çalışma, öğretmenlerin iklim eğitimindeki mesleki gelişimini araştırma temelli bir yaklaşımla destekler.</p>
+            <p>Öğretmenlerin iklim değişikliği eğitiminde dönüştürücü rol üstlenmelerini desteklemek amacıyla geliştirilmiş bir mesleki gelişim programı.</p>
           </div>
 
           <div class="footer-links">
             <h4>Sayfalar</h4>
-            <a href="#about">Hakkında</a>
-            <a href="#purpose">Amaç</a>
-            <a href="#outputs">Çıktılar</a>
-            <a href="#team">Ekip</a>
-            <a href="#gallery">Galeri</a>
-            <a href="#contact">İletişim</a>
+            <div class="footer-links-grid">
+              <a href="#about">Hakkında</a>
+              <a href="#purpose">Amaç</a>
+              <a href="#outputs">Çıktılar</a>
+              <a href="#team">Ekip</a>
+              <a href="#gallery">Galeri</a>
+              <a href="#contact">İletişim</a>
+            </div>
           </div>
 
           <div class="footer-org">
             <h4>Kurumsal</h4>
-            <p style="margin:0 0 10px;color:rgba(255,255,255,.78);">Orta Doğu Teknik Üniversitesi<br>Eğitim Fakültesi · BAP Proje No: 11858</p>
-            <div class="footer-logos">
-              <img src="./odtu.png" alt="ODTÜ logosu">
-              <img src="./project.png" alt="Proje logosu">
-            </div>
+            <p style="margin:0 0 10px;color:rgba(255,255,255,.78);">Orta Doğu Teknik Üniversitesi<br>BAP Tez-D (Proje No: 11858)</p>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <div>© 2026 Orta Doğu Teknik Üniversitesi, Eğitim Fakültesi</div>
+          <div>© 2026 Orta Doğu Teknik Üniversitesi</div>
           <div>iklimicin@gmail.com</div>
         </div>
       </div>
