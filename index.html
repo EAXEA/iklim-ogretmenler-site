@@ -334,21 +334,20 @@
     }
 
     .hero-logo .logo-card {
-      background: rgba(255,255,255,.94);
-      border-radius: 26px;
-      padding: 28px;
+      background: rgba(255,255,255,.96);
+      border-radius: 28px;
+      padding: 30px;
       box-shadow: 0 25px 50px rgba(0,0,0,.22);
-      max-width: min(420px, 100%);
+      max-width: min(440px, 100%);
       display: grid;
       place-items: center;
     }
 
     .hero-logo img {
-      width: min(340px, 100%);
+      width: min(380px, 100%);
       height: auto;
       object-fit: contain;
       display: block;
-      image-rendering: auto;
     }
 
     /* Sections */
@@ -680,8 +679,8 @@
     }
 
     .team-avatar {
-      width: 102px;
-      height: 102px;
+      width: 108px;
+      height: 108px;
       border-radius: 50%;
       flex: none;
       overflow: hidden;
@@ -756,8 +755,8 @@
 
     .gallery-head {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 460px);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 420px);
+      gap: 32px;
       align-items: end;
       margin-bottom: 32px;
     }
@@ -766,8 +765,9 @@
     .gallery-head .section-title { color: white; }
     .gallery-head .section-lead {
       color: rgba(255,255,255,.42);
-      max-width: none;
+      max-width: 42ch;
       margin: 0;
+      line-height: 1.7;
       text-wrap: balance;
     }
 
@@ -776,15 +776,14 @@
     .gallery-caption {
       color: rgba(255,255,255,.62);
       font-size: .95rem;
-      margin: 8px 0 14px;
+      margin: 10px 0 14px;
     }
 
     .gallery-controls {
-      position: absolute;
-      top: -62px;
-      right: 0;
       display: flex;
       gap: 10px;
+      justify-content: flex-end;
+      margin-bottom: 14px;
     }
 
     .gallery-btn {
@@ -1017,8 +1016,8 @@
     }
 
     .footer-brand img {
-      width: 44px;
-      height: 44px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
     }
 
@@ -1058,7 +1057,6 @@
 
     .footer-logos img {
       height: 56px;
-      max-width: 240px;
       object-fit: contain;
     }
 
@@ -1152,9 +1150,8 @@
       .brand span { max-width: 280px; }
 
       .gallery-controls {
-        position: static;
-        margin-bottom: 12px;
         justify-content: flex-end;
+        margin-bottom: 14px;
       }
 
       .hero-grid {
@@ -1163,11 +1160,6 @@
 
       .hero-logo .logo-card {
         max-width: 360px;
-      }
-
-      .footer-logos img {
-        height: 44px;
-        max-width: 200px;
       }
     }
 
@@ -1230,8 +1222,8 @@
       }
 
       .hero-logo .logo-card {
-        padding: 20px;
-        width: clamp(280px, 30vw, 380px);
+        padding: 18px;
+        width: min(300px, 100%);
       }
 
       .hero-logo img {
