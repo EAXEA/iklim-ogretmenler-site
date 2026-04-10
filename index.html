@@ -3,1757 +3,194 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="İklim için Değişen ve Dönüştüren Öğretmenler projesi için araştırma temelli tanıtım ve kaynak sayfası." />
-  <title>İklim İçin Değişen ve Dönüştüren Öğretmenler</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <title>İklim için Değişen ve Dönüştüren Öğretmenler</title>
 
   <style>
-    :root{
-      --bg: #f6f7f4;
-      --paper: #ffffff;
-      --ink: #13241d;
-      --text: #29443a;
-      --muted: #5d716a;
-      --line: rgba(19, 36, 29, 0.10);
-      --green: #0f3c2f;
-      --green-deep: #0b2f24;
-      --accent: #18b8a6;
-      --accent-soft: #daf6f0;
-      --shadow: 0 16px 42px rgba(17, 34, 28, 0.08);
-      --radius: 22px;
-      --radius-sm: 16px;
-      --max: 1180px;
-      --pad: clamp(18px, 4vw, 72px);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      line-height: 1.62;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
     }
 
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-
-    .container {
-      width: min(var(--max), calc(100% - (var(--pad) * 2)));
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 14px 0;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      transform: translateX(-2px);
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: rgba(24, 184, 166, .55);
-      flex: none;
-    }
-
-    .section-title {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.10rem, 3.5vw, 3.30rem);
-      line-height: .92;
-      letter-spacing: -.03em;
-      color: #183027;
-      font-weight: 600;
-    }
-
-    .section-lead {
-      margin: 16px 0 0;
-      max-width: 900px;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.08vw, 1.06rem);
-      line-height: 1.74;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 0 0 16px;
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.82;
-      font-weight: 400;
-    }
-
-    /* Header */
-    .topbar {
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
-    }
-
-    .topbar.scrolled {
-      background: rgba(255,255,255,.98);
-      box-shadow: 0 10px 30px rgba(11, 31, 24, .10);
-      border-bottom-color: rgba(19, 36, 29, 0.06);
-    }
-
-    .nav-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 84px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-      flex: 1 1 auto;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      flex: none;
-    }
-
-    .brand span {
-      display: block;
-      color: #173126;
-      font-size: .94rem;
-      font-weight: 700;
-      line-height: 1.20;
-      letter-spacing: -.01em;
-      max-width: 360px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      flex: 0 0 auto;
-    }
-
-    .nav a {
-      position: relative;
-      padding: 6px 0;
-      font-size: .92rem;
-      font-weight: 600;
-      color: #29433a;
-      transition: color .2s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .2s ease;
-    }
-
-    .nav a:hover {
-      color: #0b5c53;
-    }
-
-    .nav a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .partner {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 1 1 auto;
-    }
-
-    .partner img {
-      width: 240px;
-      max-width: 32vw;
-      object-fit: contain;
-    }
-
-    .menu-btn {
-      display: none;
-      border: 0;
-      background: transparent;
-      color: #234136;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .menu-btn:hover {
-      background: rgba(18,32,26,.05);
-    }
-
-    .menu-btn svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .mobile-nav {
-      display: none;
-      border-top: 1px solid var(--line);
-      background: rgba(255,255,255,.98);
-      padding: 10px 0 16px;
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 12px 0;
-      color: #234136;
-      font-weight: 600;
-    }
-
-    /* Hero */
+    /* HERO */
     .hero {
-      background:
-        radial-gradient(1000px 500px at 78% 18%, rgba(24,184,166,.10), transparent 55%),
-        linear-gradient(180deg, #124234 0%, #123d2f 100%);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      height: 74px;
-      background: linear-gradient(to bottom, rgba(246,247,244,0), var(--bg));
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(300px, .82fr);
-      gap: 48px;
-      align-items: start;
-      padding: 72px 0 88px;
-    }
-
-    .hero-kicker {
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: #7be1d2;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.9rem, 5.6vw, 4.7rem);
-      line-height: .92;
-      letter-spacing: -.03em;
-      max-width: 10ch;
-    }
-
-    .hero h1 em {
-      color: #4dd9b6;
-      font-style: italic;
-      font-weight: 600;
-    }
-
-    .hero p {
-      margin-top: 22px;
-      max-width: 700px;
-      color: rgba(255,255,255,.82);
-      font-size: 1.05rem;
-      line-height: 1.74;
-    }
-
-    .hero-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-      border: 1px solid transparent;
-      will-change: transform;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-primary {
-      background: linear-gradient(180deg, #1bb9a7, #12a394);
+      padding: 80px 10%;
+      background: linear-gradient(135deg, #0f3d2e, #1b6b50);
       color: white;
-      box-shadow: 0 12px 26px rgba(18,163,148,.22);
     }
 
-    .btn-primary:hover {
-      box-shadow: 0 14px 28px rgba(18,163,148,.30);
+    .hero-text {
+      max-width: 50%;
     }
 
-    .btn-secondary {
-      border-color: rgba(255,255,255,.20);
-      color: white;
-      background: rgba(255,255,255,.03);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.08);
-    }
-
-    .hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 360px;
-    }
-
-    .hero-logo-frame {
-      width: min(100%, 420px);
-      aspect-ratio: 1 / 1;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      backdrop-filter: none;
-    }
-
-    .hero-logo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 16px 30px rgba(0,0,0,.22));
-    }
-
-    /* Sections */
-    .panel {
-      padding: 104px 0;
-      background: var(--bg);
-    }
-
-    .panel.alt {
-      background: #fafaf8;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .84fr);
-      gap: 42px;
-      align-items: start;
-    }
-
-    .story p.lead {
-      margin-bottom: 24px;
-      padding-left: 18px;
-      border-left: 3px solid #23b5a1;
-      color: #173126;
-      font-size: 1.03rem;
-      line-height: 1.60;
-      font-weight: 600;
-    }
-
-    .story p.lead-emph {
-      color: #173126;
-      font-weight: 700;
-      letter-spacing: -.01em;
-    }
-
-    .info-card {
-      background: white;
-      border: 1px solid rgba(18,32,26,.08);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .info-item {
-      display: flex;
-      gap: 14px;
-      padding: 14px 0;
-      border-top: 1px solid rgba(18,32,26,.08);
-    }
-
-    .info-item:first-child { border-top: 0; padding-top: 0; }
-    .info-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(180deg, #effaf7, #dff7f1);
-      display: grid;
-      place-items: center;
-      flex: none;
-      color: #178b79;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .info-item h3 {
-      margin: 0 0 4px;
-      font-size: .98rem;
+    .hero-text h1 {
+      font-size: 48px;
       line-height: 1.2;
-      color: #183227;
+      margin-bottom: 20px;
     }
 
-    .info-item p {
-      margin: 0;
-      font-size: .92rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .purpose-wrap {
-      max-width: 900px;
-    }
-
-    .purpose-wrap .section-lead {
-      color: #163027;
-      font-weight: 600;
-    }
-
-    .purpose-wrap p {
-      color: #304b42;
-      margin-bottom: 16px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .card-link {
-      display: block;
-      height: 100%;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      border: 1px solid rgba(18,32,26,.08);
-      box-shadow: 0 10px 24px rgba(16, 32, 25, .05);
-      padding: 20px;
-      min-height: 168px;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(24,184,166,.12), transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,0));
-      opacity: 0;
-      transition: opacity .35s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: auto 10px 8px 10px;
-      height: 28px;
-      border-radius: inherit;
-      background: radial-gradient(60% 120% at 50% 0%, rgba(15,60,47,.18), transparent 72%);
-      filter: blur(12px);
-      opacity: .25;
-      transition: opacity .35s ease, transform .35s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(16, 32, 25, .08), 0 8px 16px rgba(16, 32, 25, .06);
-      border-color: rgba(24,184,166,.35);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover::after {
-      opacity: .65;
-      transform: translateY(2px);
-    }
-
-    .card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .card .card-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .card .ico {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: #eefaf8;
-      display: grid;
-      place-items: center;
-      color: #18a694;
-      font-weight: 800;
-      flex: none;
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1rem;
-      color: #163027;
-      line-height: 1.25;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .94rem;
-      line-height: 1.5;
-    }
-
-    .download-btn {
-      margin-top: 18px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 12px;
-      background: var(--green);
-      color: white;
-      font-weight: 700;
-      box-shadow: 0 14px 28px rgba(15,60,47,.16);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 30px rgba(15,60,47,.20);
-      background: #134234;
-    }
-
-    /* Team */
-    .team-section {
-      padding: 104px 0;
-      background: var(--bg);
-    }
-
-    .team-block {
-      margin-top: 34px;
-    }
-
-    .team-block + .team-block {
-      margin-top: 56px;
-    }
-
-    .team-heading {
-      margin: 0 0 18px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.7rem, 2.8vw, 2.35rem);
-      line-height: 1;
-      color: #173126;
-      letter-spacing: -.02em;
-    }
-
-    .team-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .team-grid.team-grid-project {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .team-grid.team-grid-mentors {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .team-card {
-      background: white;
-      border: 1px solid rgba(18,32,26,.08);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-
-    .team-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(24,184,166,.16), transparent 42%),
-        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,0));
-      opacity: 0;
-      transition: opacity .35s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .team-card::after {
-      content: "";
-      position: absolute;
-      inset: auto 12px 10px 12px;
-      height: 34px;
-      background: radial-gradient(70% 120% at 50% 0%, rgba(15,60,47,.22), transparent 70%);
-      filter: blur(18px);
-      opacity: .35;
-      transition: opacity .35s ease, transform .35s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(16, 32, 25, .08), 0 8px 16px rgba(16, 32, 25, .06);
-      border-color: rgba(24,184,166,.26);
-    }
-
-    .team-card:hover::before {
-      opacity: 1;
-    }
-
-    .team-card:hover::after {
-      opacity: .6;
-      transform: translateY(2px);
-    }
-
-    .team-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .team-top {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      margin-bottom: 16px;
-    }
-
-    .team-avatar {
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      flex: none;
-      overflow: hidden;
-      background: linear-gradient(180deg, #eaf8f5, #d7f0ea);
-      box-shadow: inset 0 0 0 1px rgba(24,184,166,.16), 0 10px 20px rgba(16,32,25,.08);
-    }
-
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 20%;
-      display: block;
-      transition: transform .4s ease, filter .4s ease;
-      filter: saturate(1.03) contrast(1.02);
-    }
-
-    .team-card:hover .team-avatar img {
-      transform: scale(1.06);
-    }
-
-    .team-grid-project .team-card:nth-child(1) .team-avatar img {
-      object-position: 50% 18%;
-    }
-
-    .team-grid-project .team-card:nth-child(2) .team-avatar img {
-      object-position: 50% 22%;
-    }
-
-    .team-grid-mentors .team-card:nth-child(1) .team-avatar img {
-      object-position: 50% 16%;
-    }
-
-    .team-grid-mentors .team-card:nth-child(2) .team-avatar img {
-      object-position: 50% 16%;
-    }
-
-    .team-grid-mentors .team-card:nth-child(3) .team-avatar img {
-      object-position: 50% 18%;
-    }
-
-    .team-copy {
-      min-width: 0;
-      flex: 1 1 auto;
-    }
-
-    .team-name {
-      margin: 0 0 5px;
-      color: #163027;
-      font-size: 1.02rem;
-      line-height: 1.22;
-      font-weight: 700;
-      letter-spacing: -.01em;
-      transition: color .25s ease, text-shadow .25s ease;
-    }
-
-    .team-card:hover .team-name {
-      color: #0f3c2f;
-      text-shadow: 0 0 18px rgba(24,184,166,.20);
-    }
-
-    .team-role {
-      margin: 0 0 4px;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: .92rem;
-      line-height: 1.35;
-    }
-
-    .team-affiliation {
-      margin: 0;
-      color: var(--muted);
-      font-size: .84rem;
-      line-height: 1.42;
-    }
-
-    .team-bio {
-      margin: 0;
-      color: var(--text);
-      font-size: .93rem;
-      line-height: 1.72;
-    }
-
-    /* Gallery */
-    .gallery-section {
-      background:
-        radial-gradient(850px 380px at 30% 0%, rgba(24,184,166,.10), transparent 60%),
-        linear-gradient(180deg, #0d2f25 0%, #0a221a 100%);
-      color: white;
-      padding: 104px 0 92px;
-    }
-
-    .gallery-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 460px);
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 32px;
-    }
-
-    .gallery-head > div {
-      min-width: 0;
-    }
-
-    .gallery-head .section-title {
-      color: white;
-    }
-
-    .gallery-head .section-lead {
-      color: rgba(255,255,255,.68);
-      max-width: none;
-      margin: 0;
-      text-wrap: balance;
-    }
-
-    .gallery-stage {
-      position: relative;
-    }
-
-    .gallery-caption {
-      color: rgba(255,255,255,.36);
-      font-size: .76rem;
-      margin: 8px 0 14px;
-    }
-
-    .gallery-controls {
-      position: absolute;
-      top: -62px;
-      right: 0;
-      display: flex;
-      gap: 10px;
-    }
-
-    .gallery-btn {
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 12px;
-      background: rgba(255,255,255,.04);
-      color: white;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease;
-    }
-
-    .gallery-btn:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.08);
-    }
-
-    .gallery-track {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(250px, 1fr);
-      gap: 14px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 6px;
-      scrollbar-width: none;
-      scroll-behavior: smooth;
-    }
-
-    .gallery-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    .gallery-slide {
-      scroll-snap-align: start;
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(255,255,255,.08);
-      aspect-ratio: 4 / 3;
-      box-shadow: 0 16px 30px rgba(0,0,0,.16);
-    }
-
-    .gallery-slide img,
-    .mini img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 22px;
-      padding-top: 34px;
-      margin-top: 22px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2.7rem;
-      line-height: 1;
-      color: white;
-      font-weight: 600;
-    }
-
-    .stat span {
-      display: block;
-      margin-top: 8px;
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.42);
-      font-weight: 800;
-    }
-
-    /* Contact */
-    .contact-section {
-      background:
-        radial-gradient(700px 320px at 20% 0%, rgba(24,184,166,.08), transparent 60%),
-        linear-gradient(180deg, #fcfdfc 0%, #ffffff 100%);
-      padding: 104px 0 92px;
-    }
-
-    .contact-top {
-      max-width: 820px;
+    .hero-text p {
+      font-size: 18px;
+      opacity: 0.9;
       margin-bottom: 30px;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
-      gap: 24px;
-      align-items: stretch;
+    .hero-buttons a {
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
     }
 
-    .contact-story {
-      background: white;
-      border: 1px solid rgba(18,32,26,.08);
-      border-radius: 20px;
+    .btn-primary {
+      background: #2dd4bf;
+      color: #003d2e;
+    }
+
+    .btn-secondary {
+      border: 1px solid #ffffff88;
+      color: white;
+    }
+
+    /* PREMIUM LOGO FIX */
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo img {
+      width: 220px;
       padding: 24px;
-      box-shadow: var(--shadow);
+
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.85)
+      );
+
+      border-radius: 24px;
+      backdrop-filter: blur(6px);
+
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
     }
 
-    .contact-ribbon {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 18px;
-      border-bottom: 1px solid rgba(18,32,26,.08);
-      margin-bottom: 18px;
+    /* SECTION */
+    section {
+      padding: 80px 10%;
     }
 
-    .ribbon-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .72rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: #4b7c74;
+    h2 {
+      margin-bottom: 20px;
     }
 
-    .ribbon-label::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: rgba(24,184,166,.55);
+    /* CONTACT */
+    .contact a {
+      color: #0f766e;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .contact-mail {
-      display: inline-flex;
-      align-items: center;
-      min-height: 46px;
-      padding: 0 16px;
-      border-radius: 12px;
-      background: #0f3c2f;
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, #0f3d2e, #1b6b50);
       color: white;
-      font-size: .95rem;
-      font-weight: 700;
-      box-shadow: 0 14px 28px rgba(15,60,47,.16);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      padding: 60px 10%;
     }
 
-    .contact-mail:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 30px rgba(15,60,47,.20);
-      background: #134234;
-    }
-
-    .contact-copy {
-      margin: 0 0 18px;
-      color: #304b42;
-      font-size: 1rem;
-      line-height: 1.7;
-      max-width: 64ch;
-    }
-
-    .contact-note {
-      border-radius: 16px;
-      background: linear-gradient(180deg, #f6fbfa, #eef8f5);
-      border: 1px solid rgba(24,184,166,.12);
-      padding: 18px;
-      color: #244238;
-      font-size: .96rem;
-      line-height: 1.66;
-    }
-
-    .contact-note strong {
-      display: block;
-      margin-bottom: 8px;
-      color: #173126;
-      font-size: .98rem;
-    }
-
-    .contact-side {
-      display: grid;
-      gap: 16px;
-      align-content: start;
-    }
-
-    .contact-box {
-      border: 1px solid rgba(18,32,26,.08);
-      border-radius: 16px;
-      background: white;
-      padding: 18px 18px 16px;
-      box-shadow: 0 10px 24px rgba(16, 32, 25, .05);
-    }
-
-    .contact-box .small {
-      display: block;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: var(--accent);
-      margin-bottom: 8px;
-      font-weight: 800;
-    }
-
-    .contact-box strong,
-    .contact-box p {
-      margin: 0;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      margin-top: 6px;
-      line-height: 1.55;
-    }
-
-    .contact-box.team strong {
-      color: #173126;
-    }
-
-    /* Footer */
-    .footer {
-      background: #0c251d;
-      color: white;
-      padding: 56px 0 24px;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.2fr .7fr .9fr;
-      gap: 30px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      align-items: start;
-    }
-
-    .footer-top p {
-      color: rgba(255,255,255,.68);
-      max-width: 620px;
-      margin: 0;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .footer-brand img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-    }
-
-    .footer-brand strong {
-      display: block;
-      font-size: .98rem;
-    }
-
-    .footer-links h4,
-    .footer-org h4 {
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: rgba(255,255,255,.42);
-      margin: 0 0 14px;
-    }
-
-    .footer-links-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-auto-flow: column;
-      grid-template-rows: repeat(3, auto);
-      gap: 0 28px;
-      align-items: start;
-    }
-
-    .footer-links a {
-      display: block;
-      padding: 6px 0;
-      color: rgba(255,255,255,.82);
-    }
-
-    .footer-logos {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .footer-logos img {
-      height: 40px;
-      object-fit: contain;
-    }
-
-    .footer-bottom {
-      padding-top: 20px;
+    .footer-content {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      color: rgba(255,255,255,.45);
-      font-size: .92rem;
+      align-items: center;
       flex-wrap: wrap;
     }
 
-    .fade-up {
-      animation: fadeUp .55s ease both;
+    .footer-left {
+      max-width: 400px;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
+    .footer-left img {
+      width: 180px;
+      margin-bottom: 10px;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .55s ease, transform .55s ease;
+    .footer-right img {
+      width: 180px;
     }
 
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-    .delay-4 { transition-delay: 0.32s; }
-    .delay-5 { transition-delay: 0.40s; }
-    .delay-6 { transition-delay: 0.48s; }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(24,184,166,0.12), transparent 38%);
-      opacity: .9;
-      transition: background 0.08s linear;
-      z-index: 0;
-    }
-
-    .btn {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,.25), transparent);
-      opacity: 0;
-      transition: opacity .35s ease;
-      pointer-events: none;
-    }
-
-    .btn:hover::after {
-      opacity: 1;
-    }
-
-    /* Responsive */
-    @media (max-width: 1060px) {
-      .hero-grid,
-      .two-col,
-      .contact-grid,
-      .footer-top {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-head {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .team-grid.team-grid-project,
-      .team-grid.team-grid-mentors,
-      .cards-grid,
-      .stats,
-      .footer-links-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav, .partner {
-        display: none;
-      }
-
-      .menu-btn {
-        display: inline-flex;
-      }
-
-      .mobile-nav.show {
-        display: block;
-      }
-
-      .brand span {
-        max-width: 280px;
-      }
-
-      .gallery-controls {
-        position: static;
-        margin-bottom: 12px;
-        justify-content: flex-end;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        width: min(var(--max), calc(100% - 28px));
-      }
-
-      .nav-wrap {
-        min-height: 74px;
-      }
-
-      .brand span {
-        font-size: .88rem;
-      }
-
-      .hero {
-        padding-top: 34px;
-      }
-
-      .hero-grid {
-        padding: 26px 0 68px;
-        gap: 24px;
-      }
-
-      .hero h1 {
-        max-width: 12ch;
-        font-size: clamp(2.45rem, 11vw, 3.45rem);
-      }
-
-      .section-title {
-        font-size: clamp(1.85rem, 8vw, 2.45rem);
-      }
-
-      .section-lead {
-        font-size: 1rem;
-      }
-
-      .panel,
-      .contact-section,
-      .team-section {
-        padding: 74px 0;
-      }
-
-      .gallery-section {
-        padding: 82px 0 74px;
-      }
-
-      .meta-row {
-        grid-template-columns: 96px 1fr;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .team-top {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .team-copy {
-        width: 100%;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="container nav-wrap">
-      <a class="brand" href="#hero" aria-label="Ana sayfa">
-        <img src="./project.png" alt="Proje logosu">
-        <span>İklim için Değişen ve Dönüştüren Öğretmenler</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>İklim için Değişen ve Dönüştüren Öğretmenler</h1>
+
+      <p>
+        Hizmet-içi öğretmenlerin iklim değişikliğini öğretme konusundaki 
+        yetkinliklerini güçlendirmek amacıyla hazırlanmış iş birlikçi 
+        bir mesleki gelişim programıdır.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Projeyi İncele</a>
+        <a href="#" class="btn-secondary">Çıktılara Göz At</a>
+      </div>
+    </div>
+
+    <div class="hero-logo">
+      <img src="files/project.png" alt="Proje Logosu">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>Proje Hakkında</h2>
+
+    <p>
+      Öğretmenlerin iklim değişikliğini sınıflarına taşıyabilmeleri için 
+      tasarlanan araştırma temelli bir mesleki gelişim programı.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <h2>İletişim</h2>
+
+    <p>
+      E-posta:
+      <a href="mailto:iklimicinogret@gmail.com">
+        iklimicinogret@gmail.com
       </a>
+    </p>
+  </section>
 
-      <nav class="nav" aria-label="Ana menü">
-        <a href="#about">Hakkında</a>
-        <a href="#purpose">Amaç</a>
-        <a href="#outputs">Çıktılar</a>
-        <a href="#team">Ekip</a>
-        <a href="#gallery">Galeri</a>
-        <a href="#contact">İletişim</a>
-      </nav>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
 
-      <div class="partner">
-        <img src="./odtu.png" alt="ODTÜ logosu">
+      <div class="footer-left">
+        <img src="files/project.png" alt="Proje Logo">
+
+        <p>
+          Öğretmenlerin iklim değişikliği eğitiminde dönüştürücü rol üstlenmelerini 
+          desteklemek amacıyla geliştirilmiş bir mesleki gelişim programı.
+        </p>
       </div>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç/kapat" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <div class="footer-right">
+        <!-- YENİ ODTÜ BEYAZ LOGO -->
+        <img src="files/odtu-white.png" alt="ODTÜ Logo">
+      </div>
+
     </div>
+  </footer>
 
-    <div class="container mobile-nav" id="mobileNav">
-      <a href="#about">Hakkında</a>
-      <a href="#purpose">Amaç</a>
-      <a href="#outputs">Çıktılar</a>
-      <a href="#team">Ekip</a>
-      <a href="#gallery">Galeri</a>
-      <a href="#contact">İletişim</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="hero">
-      <div class="container hero-grid">
-        <div class="fade-up">
-          <div class="hero-kicker">ODTÜ Eğitim Fakültesi · BAP 11858</div>
-          <h1>İklim için Değişen<br>ve Dönüştüren <em>Öğretmenler</em></h1>
-          <p>Fen bilimleri öğretmenlerinin iklim eğitimindeki yetkinliklerini güçlendirmek için tasarlanan iş birliğine dayalı bir akademik program.</p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#about">Projeyi İncele →</a>
-            <a class="btn btn-secondary" href="#outputs">Çıktılara Göz At</a>
-          </div>
-        </div>
-
-        <aside class="hero-visual fade-up" aria-label="Proje logosu">
-          <div class="hero-logo-frame">
-            <img src="./project.png" alt="Proje logosu">
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="panel reveal delay-1" id="about">
-      <div class="container two-col">
-        <div class="story">
-          <div class="eyebrow">Arka Plan</div>
-          <h2 class="section-title">Proje Hakkında</h2>
-          <p class="section-lead lead-emph">Öğretmenlerin iklim değişikliğini sınıflarına taşıyabilmeleri için tasarlanan araştırma temelli bir mesleki gelişim programı.</p>
-
-          <div style="height:28px"></div>
-
-          <p>Bu program, öğretmenlerin iklim değişikliği eğitimindeki yetkinliklerini artırmayı hedefleyen kapsamlı bir mesleki gelişim ve etkileşim platformudur. Katılımcıların öğretim süreçlerinde aktif rol aldığı, yenilikçi ve kapsayıcı öğrenme ortamları sunan yapılandırılmış bir eğitim modelini içermektedir.</p>
-
-          <p>Bu çalışma, Orta Doğu Teknik Üniversitesi (ODTÜ) Bilimsel Araştırma Projeleri Koordinasyon Birimi tarafından 11858 proje numarası ile desteklenen bir doktora tez projesidir. Tüm araştırma ve uygulama süreçleri ODTÜ Eğitim Fakültesi bünyesinde yürütülmektedir.</p>
-
-          <p>Program, Ankara ilindeki ortaokullarda aktif olarak görev yapan fen bilimleri öğretmenlerinin katılımıyla hayata geçirilmiştir. Eğitim modelinin tasarımı, öğretmenlerin sınıf içindeki gerçek ihtiyaçları göz önünde bulundurularak, öğretmenlerle iş birliği içinde geliştirilmiş ve uygulanmıştır.</p>
-
-          <p>Temel amaç, öğretmenleri salt iklim değişikliği bilgilerini aktarmanın ötesinde, bu konuyu dönüştürücü ve öğrenci merkezli bir stratejiyle ele almalarını sağlayacak pedagojik gelişimleriyle donatmaktır.</p>
-        </div>
-
-        <aside class="info-card reveal delay-2">
-          <div class="info-item">
-            <div class="info-icon">🎓</div>
-            <div>
-              <h3>Prof. Dr. Elvan Şahin &amp; Arş. Gör. Ceren Başer Kanbak</h3>
-              <p>Bu çalışma, danışmanlığını Prof. Dr. Elvan Şahin’in yürüttüğü ve doktora öğrencisi Ceren Başer Kanbak tarafından hazırlanan bir doktora tez çalışmasıdır.</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">👥</div>
-            <div>
-              <h3>Hizmet-İçi Öğretmen Katılımı</h3>
-              <p>Ankara ilinde görev yapmakta olan öğretmenler ile iş birliği içinde uygulanmıştır.</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">BAP</div>
-            <div>
-              <h3>ODTÜ BAP Desteği</h3>
-              <p>Üniversitenin Bilimsel Araştırma Projeleri (BAP) birimi tarafından BAP Tez-D kapsamında 11858 proje numarasıyla desteklenmektedir.</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">🌍</div>
-            <div>
-              <h3>İklim Değişikliği Eğitimi</h3>
-              <p>Projenin odaklandığı alan iklim değişikliği eğitimidir.</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="panel alt reveal delay-2" id="purpose">
-      <div class="container purpose-wrap">
-        <div class="eyebrow">Odak ve Yönelim</div>
-        <h2 class="section-title">Amaç</h2>
-        <p class="section-lead">Projenin temel amacı, öğretmenlerin karmaşık ve multidisipliner bir yapıya sahip olan iklim değişikliği konusunu öğretirken karşılaştıkları kavramsal, pedagojik ve sistemsel zorlukların üstesinden gelmelerini desteklemektir.</p>
-
-        <div style="height:28px"></div>
-
-        <p>Bu amaç doğrultusunda, sınıf içi uygulamalarda salt bilgi aktarımına dayalı geleneksel yöntemler yerine, öğrenciyi aktif kılan ve sorgulamaya teşvik eden öğrenci merkezli, dönüştürücü öğretim stratejilerinin güçlendirilmesi hedeflenmektedir. Eğitimin yalnızca farkındalık yaratmanın ötesine geçerek davranışsal bir değişime ilham vermesi, projenin temel pedagojik yaklaşımını oluşturmaktadır.</p>
-
-        <p>Katılımcıların iklim okuryazarlığını desteklemek üzere tasarlanmış aktif ve etkileşimli öğrenme ortamları aracılığıyla, öğretmenlerin alan bilgisi, pedagojik yetkinlikleri ve öğretim sürecine dair motivasyonları ile isteklilikleri artırılmaktadır. Bu yapılandırılmış ve uygulamalı yaklaşım sayesinde, öğretmenlerin öğretim süreçlerinde daha donanımlı ve özgüvenli bir duruş sergilemeleri sağlanmaktadır.</p>
-      </div>
-    </section>
-
-    <section class="panel reveal delay-3" id="outputs">
-      <div class="container">
-        <div class="eyebrow">Kaynak Merkezi</div>
-        <h2 class="section-title">Proje Çıktıları</h2>
-        <p class="section-lead">Araştırma sürecinde üretilen materyaller belgelenmiş ve erişime hazır hâle getirilmiştir.</p>
-
-        <div class="cards-grid">
-          <article class="card reveal delay-1">
-            <div class="card-top">
-              <div class="ico">📘</div>
-              <h3>Öğretmen El Kitabı</h3>
-            </div>
-            <p>Öğretmenlerin sınıf içi uygulamalarında kullanabilecekleri içerik ve etkinlikleri içeren rehber. (Yakında yüklenecek)</p>
-          </article>
-
-          <article class="card reveal delay-2">
-            <div class="card-top">
-              <div class="ico">🎬</div>
-              <h3>Etkinlikten Kesitler</h3>
-            </div>
-            <p>Oturumlara kısa bir bakış.</p>
-          </article>
-
-          <article class="card reveal delay-3">
-            <div class="card-top">
-              <div class="ico">🏫</div>
-              <h3>Sınıf İçi Uygulama Örnekleri</h3>
-            </div>
-            <p>Öğretmenlerimizin sınıf içi uygulamalarından örnek paylaşımlar.</p>
-          </article>
-
-          <article class="card reveal delay-4">
-            <div class="card-top">
-              <div class="ico">📄</div>
-              <h3>Araştırma Raporları</h3>
-            </div>
-            <p>Akademik paylaşımlar.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="team-section reveal delay-4" id="team">
-      <div class="container">
-        <div class="eyebrow">Ekibimiz</div>
-        <h2 class="section-title">Ekip</h2>
-
-        <div class="team-block">
-          <h3 class="team-heading">Proje Ekibimiz</h3>
-
-          <div class="team-grid team-grid-project">
-            <article class="team-card reveal delay-1">
-              <div class="team-top">
-                <div class="team-avatar">
-                  <img src="./files/team/elvan.jpeg" alt="Prof. Dr. Elvan Şahin">
-                </div>
-                <div class="team-copy">
-                  <h4 class="team-name">Prof. Dr. Elvan Şahin</h4>
-                  <p class="team-role">Proje Yürütücüsü</p>
-                  <p class="team-affiliation">ODTÜ Matematik ve Fen Bilimleri Eğitimi Bölümü</p>
-                </div>
-              </div>
-              <p class="team-bio">Orta Doğu Teknik Üniversitesi, Matematik ve Fen Bilimleri Eğitimi Bölümü öğretim üyesidir. Fen eğitimi alanında doktora (2008) ve yüksek lisans (2005), kimya eğitimi alanında lisans (2002) derecelerine sahiptir. Başlıca araştırma alanları sürdürülebilir kalkınma için eğitim ve çevre okuryazarlığıdır.</p>
-            </article>
-
-            <article class="team-card reveal delay-2">
-              <div class="team-top">
-                <div class="team-avatar">
-                  <img src="./files/team/ceren.jpg" alt="Arş. Gör. Ceren Başer Kanbak">
-                </div>
-                <div class="team-copy">
-                  <h4 class="team-name">Arş. Gör. Ceren Başer Kanbak</h4>
-                  <p class="team-role">Araştırma Görevlisi ve Doktora Öğrencisi</p>
-                  <p class="team-affiliation">ODTÜ Matematik ve Fen Bilimleri Eğitimi Bölümü</p>
-                </div>
-              </div>
-              <p class="team-bio">Orta Doğu Teknik Üniversitesi, Matematik ve Fen Bilimleri Eğitimi bölümünde araştırma görevlisi ve doktora öğrencisidir. Aynı bölümden lisans (2018) ve yüksek lisans (2021) derecelerine sahiptir.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="team-block">
-          <h3 class="team-heading">Eğitmenlerimiz</h3>
-
-          <div class="team-grid team-grid-mentors">
-            <article class="team-card reveal delay-1">
-              <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
-                <div class="team-avatar">
-                  <img src="./files/team/guliz.jpeg" alt="Doç. Dr. Güliz Karaarslan Semiz">
-                </div>
-                <div class="team-copy">
-                  <h4 class="team-name">Doç. Dr. Güliz Karaarslan Semiz</h4>
-                  <p class="team-role">Eğitmen</p>
-                  <p class="team-affiliation">Vechta Üniversitesi, Almanya</p>
-                </div>
-              </div>
-              <p class="team-bio">2016 yılında ODTÜ Fen Bilimleri Eğitimi'nde Sürdürülebilir Kalkınma için Eğitim kapsamında Sistemsel Düşünce Becerileri konusu üzerine doktorasını tamamlamıştır. Ana çalışma alanları ilköğretim seviyesi sürdürülebilir kalkınma için eğitim ve iklim değişikliği eğitimidir.</p>
-            </article>
-
-            <article class="team-card reveal delay-2">
-              <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
-                <div class="team-avatar">
-                  <img src="./files/team/mehmet.webp" alt="Doç. Dr. Mehmet Şen">
-                </div>
-                <div class="team-copy">
-                  <h4 class="team-name">Doç. Dr. Mehmet Şen</h4>
-                  <p class="team-role">Eğitmen</p>
-                  <p class="team-affiliation">TED Üniversitesi, Temel Eğitim Bölümü Sınıf Eğitimi Anabilim Dalı</p>
-                </div>
-              </div>
-              <p class="team-bio">2021 yılında doktorasını tamamlamıştır. Doktora sürecinde ortaokul öğrencilerinin fen derslerinde argümantasyon sürecine katılımlarını, kullandıkları argümantasyon şemalarını ve argümantasyon eğitiminin bilimsel okuryazarlık düzeyine etkisini gerçek sınıf ortamında araştırmıştır.</p>
-            </article>
-
-            <article class="team-card reveal delay-3">
-              <div class="team-top" style="flex-direction:column;align-items:center;text-align:center;">
-                <div class="team-avatar">
-                  <img src="./files/team/selin.jpeg" alt="Selin Kalender Sert">
-                </div>
-                <div class="team-copy">
-                  <h4 class="team-name">Selin Kalender Sert</h4>
-                  <p class="team-role">Eğitmen</p>
-                  <p class="team-affiliation">İSTEK Okulları Eğitim Uzmanı</p>
-                </div>
-              </div>
-              <p class="team-bio">Hacettepe Üniversitesi Fen Bilimleri Öğretmenliği ve Ankara Üniversitesi Yaratıcı Drama Yüksek Lisans mezunudur. Çağdaş Drama Derneği Yaratıcı Drama Eğitmenlik ve Uludağ Üniversitesi Doğa ve Orman Pedagojisi Eğitmenlik Programlarını tamamlamıştır. Öğretmenlerin mesleki gelişimi ve doğa temelli çalışmalarda uzmanlaşmıştır.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery-section reveal delay-5" id="gallery">
-      <div class="container">
-        <div class="gallery-head">
-          <div>
-            <div class="eyebrow">Etkinlikten</div>
-            <h2 class="section-title">Galeri</h2>
-          </div>
-          <p class="section-lead">"İklim için Değişen ve Dönüştüren Öğretmenler" Mesleki Gelişim Programı’ndan derlenen görseller.</p>
-        </div>
-
-        <div class="gallery-stage">
-          <div class="gallery-controls">
-            <button class="gallery-btn" id="prevBtn" aria-label="Önceki görsel">‹</button>
-            <button class="gallery-btn" id="nextBtn" aria-label="Sonraki görsel">›</button>
-          </div>
-
-          <div class="swiper gallery-swiper" id="galleryTrack" aria-label="Galeri kaydırma alanı">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide gallery-slide">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80" alt="Galeri ana görsel">
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80" alt="Modül geliştirme çalışması">
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1400&q=80" alt="Mesleki gelişim semineri">
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=80" alt="Çevre gözlemi">
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80" alt="Sınıf içi uygulama">
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80" alt="Akademik oturum">
-              </div>
-            </div>
-
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-
-        <div class="gallery-caption">Etkinliklerden bir çalışma anı</div>
-
-        <div class="stats">
-          <div class="stat">
-            <strong>10+</strong>
-            <span>Etkinlik</span>
-          </div>
-          <div class="stat">
-            <strong>20+</strong>
-            <span>Katılımcı</span>
-          </div>
-          <div class="stat">
-            <strong>7</strong>
-            <span>Tema</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section reveal delay-6" id="contact">
-      <div class="container">
-        <div class="contact-top">
-          <div class="eyebrow">İletişim</div>
-          <h2 class="section-title">İletişime Geçin</h2>
-          <p class="section-lead">Proje hakkında bilgi almak, iş birliği önermek veya materyallere erişim talep etmek için aşağıdaki kanalları kullanabilirsiniz.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-story">
-            <div class="eyebrow">Doğrudan iletişim</div>
-            <p class="contact-copy">Mesajlarınız proje ekibine doğrudan ulaşır. Eğitim materyalleri, iş birliği önerileri ve erişim talepleri için sağdaki e-posta adresini kullanabilirsiniz.</p>
-          </div>
-
-          <div class="contact-side">
-            <div class="contact-box team">
-              <span class="small">Proje Ekibi</span>
-              <strong>Prof. Dr. Elvan Şahin</strong>
-              <p>Arş. Gör. Ceren Başer Kanbak</p>
-            </div>
-            <div class="contact-box">
-              <span class="small">E-Posta</span>
-              <strong>iklimicin@gmail.com</strong>
-            </div>
-            <div class="contact-box">
-              <span class="small">Destekleyen Birim</span>
-              <strong>ODTÜ BAP Koordinasyon Birimi</strong>
-              <p>BAP Tez-D (Proje No: 11858)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-top">
-          <div>
-            <div class="footer-brand" style="margin-top:0;">
-              <img src="./odtu.png" alt="ODTÜ logosu">
-              <div>
-                <strong>İklim için Değişen ve Dönüştüren Öğretmenler</strong>
-              </div>
-            </div>
-            <p>Öğretmenlerin iklim değişikliği eğitiminde dönüştürücü rol üstlenmelerini desteklemek amacıyla geliştirilmiş bir mesleki gelişim programı.</p>
-          </div>
-
-          <div class="footer-links">
-            <h4>Sayfalar</h4>
-            <div class="footer-links-grid">
-              <a href="#about">Hakkında</a>
-              <a href="#purpose">Amaç</a>
-              <a href="#outputs">Çıktılar</a>
-              <a href="#team">Ekip</a>
-              <a href="#gallery">Galeri</a>
-              <a href="#contact">İletişim</a>
-            </div>
-          </div>
-
-          <div class="footer-org">
-            <h4>Kurumsal</h4>
-            <p style="margin:0 0 10px;color:rgba(255,255,255,.78);">Orta Doğu Teknik Üniversitesi<br>BAP Tez-D (Proje No: 11858)</p>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <div>© 2026 Orta Doğu Teknik Üniversitesi</div>
-          <div>iklimicin@gmail.com</div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('mobileNav');
-    const topbar = document.querySelector('.topbar');
-
-    btn?.addEventListener('click', () => {
-      const open = nav.classList.toggle('show');
-      btn.setAttribute('aria-expanded', String(open));
-    });
-
-    nav?.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('show');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    const swiper = new Swiper(".gallery-swiper", {
-      loop: true,
-      spaceBetween: 18,
-      grabCursor: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: ".gallery-section .gallery-btn#nextBtn",
-        prevEl: ".gallery-section .gallery-btn#prevBtn",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1.12,
-        },
-        768: {
-          slidesPerView: 1.75,
-        },
-        1024: {
-          slidesPerView: 2.6,
-        }
-      }
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('is-visible');
-      });
-    }, { threshold: 0.18 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    const setNavState = () => {
-      if (!topbar) return;
-      topbar.classList.toggle('scrolled', window.scrollY > 12);
-    };
-
-    setNavState();
-    window.addEventListener('scroll', setNavState, { passive: true });
-
-    document.addEventListener('mousemove', (e) => {
-      document.documentElement.style.setProperty('--x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--y', `${e.clientY}px`);
-    }, { passive: true });
-  </script>
 </body>
 </html>
